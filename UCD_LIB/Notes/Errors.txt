@@ -1,0 +1,4 @@
+﻿Parsing ucd flat xml file
+	53445 or 0xD0C5 has an error currently
+	0xD0C5 shows up on line 52270
+    linie 54107 formated differently

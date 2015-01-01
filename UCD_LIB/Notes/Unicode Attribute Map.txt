@@ -1,0 +1,124 @@
+﻿Unicode Attribute Map
+Source: http://www.unicode.org/reports/tr42/#w1aac27b1
+Type|Attribute|Code_Name|Description
+Type:
+	s=string
+	b=boolean
+	i=integer
+	m=integer(yes, no, maybe)
+	d=decimal
+
+Regex to Match for Code Building:		^(?:[i|d|s|b|m])\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9]+)\|(.*)(\r\n)
+Make sure that there is a new line after the last code parse line below for this regex
+Regex Flags:Compiled|Ignore Case|Multi-line|Culture Invairant
+	Replace:
+		$1 = Attribute
+		$2 = Code_Name
+		$3 = Description
+		$4 = NewLine
+	To replace Attribures do a fine and repalace with $1$2
+
+i|cp|CodePoint|Code point
+i|first_cp|FirstCodePoint|First Code Point
+i|last_cp|LastCodePoint|Last Code Point
+d|age|Age|Age
+s|na|Name|Name
+s|na1|NameOne|Name
+s|blk|Block|Block
+s|gc|GeneralCategory|General Category
+i|ccc|Combining|Combining Properties
+s|bc|Bidirectionality|Bidirectionality Properties
+b|Bidi_M|BidiM|The mirrored property
+s|bmg|Bmg|The bmg attribute
+b|Bidi_C|BidiControl|Bidi_Control property
+s|bpt|BidiParedBracketType|bidi paired bracket type
+s|bpb|BidiParedBracket|bidi paired bracket properties
+s|dt|DecompDt|Decomposition
+s|dm|DecompDm|Decomposition ("#" zero or more code points)
+b|CE|CompositionExclusion|Composition_Exclusion
+b|Comp_Ex|FullCompositionExclusion|Full_Composition_Exclusion
+m|NFC_QC|NfcQuickCheck|NFC_Quick_Check (Y,N, or M "Yes, No or Maybe")
+b|NFD_QC|NfdQuickCheck|NFD_Quick_Check
+m|NFKC_QC|NfkcQuickCheck|NFKC_Quick_Check (Y,N, or M "Yes, No or Maybe")
+b|NFKD_QC|NfkdQuickCheck|NFKD_Quick_Check
+b|XO_NFC|ExpandsOnNFC|Expands_On_NFC
+b|XO_NFD|ExpandsOnNFD|Expands_On_NFD
+b|XO_NFKC|ExpandsOnNFKC|Expands_On_NFKC
+b|XO_NFKD|ExpandsOnNKFD|Expands_On_NKFD
+s|FC_NFKC|FcNfkcClosure|FC_NFKC_Closure ("#" zero or more code points)
+s|nt|NumericType|Numeric type
+s|nv|NumericValue|Numeric value { "NaN" - xsd:string { pattern = "-?[0-9]+(/[0-9]+)?" }}? matches fractions as well 13/64
+s|jt|JoiningClass|Joining class
+s|jg|JoiningGroup|Joining group
+b|Join_C|JoiningControl|Joining Control
+s|lb|LineBreak|Linebreak Properties
+s|ea|EastAsianWidth|East Asian Width Property
+b|Upper|Upper|Upper Case Property
+b|Lower|Lower|Lower Case Property
+b|OUpper|OtherUpper|Other Upper Case Property
+b|OLower|OtherLower|Other Lower Case Property
+s|suc|SimplCaseMapUpperCase|Simple Case Mappings
+s|slc|SimplCaseMapLowerCase|Simple Case Mappings
+s|stc|SimplCaseMapTitleCase|Simple Case Mappings
+s|uc|ComplexCaseMapUpperCase|Non-Simple Case Mappings
+s|lc|ComplexCaseMapLowerCase|Non-Simple Case Mappings
+s|tc|ComplexCaseMapTitleCase|Non-Simple Case Mappings
+s|scf|SimpleCaseFolding|Smple Case Folding
+s|cf|CaseFolding|Case Folding
+b|CI|CaseIgnorable|Case_Ignorable
+b|Cased|Cased|Cased
+b|CWCF|ChangesWhenCasefolded|Changes_When_Casefolded
+b|CWCM|ChangesWhenCasemapped|Changes_When_Casemapped
+b|CWL|ChangesWhenLowercased|Changes_When_Lowercased
+b|CWKCF|ChangesWhenNfkcCasefolded|Changes_When_NFKC_Casefolded
+b|CWT|ChangesWhenTitlecased|Changes_When_Titlecased
+b|CWU|ChangesWhenUppercased|Changes_When_Uppercased
+s|NFKC_CF|NfkcCasefold|NKFC_Casefold
+s|sc|Script|Script Properties
+s|scx|ScriptExtension|Script_Extension
+s|isc|Iso10646comment|ISO 10646 comment field
+s|hst|HangulSyllableType|Hangul_Syllable_Type
+s|JSN|JamoShortName|Jamo_Short_Name
+s|InSC|IndicSyllabicCategory|Indic_Syllabic_Category
+s|InMC|IndicMatraCategory|Indic_Matra_Category
+b|IDS|IdStart|ID_Start
+b|OIDS|OtherIdStart|Other_ID_Start
+b|XIDS|XidStart|XID_Start
+b|IDC|IdContinue|ID_Continue
+b|OIDC|OtherIdContinue|Other_ID_Continue
+b|XIDC|XidContinue|XID_Continue
+b|Pat_Syn|PatternSyntax|Pattern_Syntax
+b|Pat_WS|PatternWhiteSpace|Pattern_White_Space
+b|Dash|Dash|Dash
+b|Hyphen|Hyphen|Hyphen
+b|QMark|QuotationMark|Quotation_Mark
+b|Term|TerminalPunctuation|Terminal_Punctuation
+b|STerm|STerm|STerm
+b|Dia|Diacritic|Diacritic
+b|Ext|Extender|Extender
+b|SD|SoftDotted|Soft_Dotted
+b|Alpha|Alphabetic|Alphabetic
+b|OAlpha|OtherAlphabetic|Other_Alphabetic
+b|Math|Math|Math
+b|OMath|OtherMath|Other_Math
+b|Hex|HexDigit|Hex_Digit
+b|AHex|ASCIIHexDigit|ASCII_Hex_Digit
+b|DI|DefaultIgnorableCodePoint|Default_Ignorable_Code_Point
+b|ODI|OtherDefaultIgnorableCodePoint|Other_Default_Ignorable_Code_Point
+b|LOE|LogicalOrderException|Logical_Order_Exception
+b|WSpace|WhiteSpace|White_Space
+b|Gr_Base|GraphemeBase|Grapheme_Base
+b|Gr_Ext|GraphemeExtend|Grapheme_Extend
+b|OGr_Ext|OtherGraphemeExtend|Other_Grapheme_Extend
+b|Gr_Link|GraphemeLink|Grapheme_Link
+s|GCB|GraphemeClusterBreak|Grapheme_Cluster_Break
+s|WB|WordBreak|Word_Break
+s|SB|SentenceBreak|Sentence_Break
+b|Ideo|Ideographic|Ideographic
+b|UIdeo|UnifiedIdeograph|Unified_Ideograph
+b|IDSB|IDSBinaryOperator|IDS_Binary_Operator
+b|IDST|IDSTrinaryOperator|IDS_Trinary_Operator
+b|Radical|Radical|Radical
+b|Dep|Deprecated|Deprecated
+b|VS|VariationSelector|Variation_Selector
+b|NChar|NoncharacterCodePoint|Noncharacter_Code_Point

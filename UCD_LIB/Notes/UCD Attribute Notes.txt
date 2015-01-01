@@ -1,0 +1,6 @@
+﻿surrogate and reserved elements have identical attributes.
+Some char elements have attributes identical to surrogate and reserved elements.
+
+Some char elements have attribute 'cp' and other have 'first-cp' and 'last-cp' all other attributes
+are identical.
+In summary all elements are the same except some char elements have the difference noted above.

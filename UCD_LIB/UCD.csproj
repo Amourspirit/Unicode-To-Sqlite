@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B636BA35-BD43-45E9-BC54-3A867C7A10B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UCD</RootNamespace>
+    <AssemblyName>UCD_LIB</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\UCD_LIB.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SqlLitehelper, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\SqlLiteHelper\SqlLitehelper\bin\Release\SqlLitehelper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.94.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\System.Data.SQLite\2013\GAC\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Args\BlockItemArgs.cs" />
+    <Compile Include="Args\CjkRadicalsArgs.cs" />
+    <Compile Include="Args\EmojiSourceArgs.cs" />
+    <Compile Include="Args\FinishedArgs.cs" />
+    <Compile Include="Args\NamedArgs.cs" />
+    <Compile Include="Args\NamedSequenceArgs.cs" />
+    <Compile Include="Args\NormalizationCorrectionsArgs.cs" />
+    <Compile Include="Args\RepertoireArgs.cs" />
+    <Compile Include="Args\StandardizedVariantsArgs.cs" />
+    <Compile Include="Block\BlockItem.cs" />
+    <Compile Include="Block\BlockTable.cs" />
+    <Compile Include="CjkRadicals\CjkRadicalsItem.cs" />
+    <Compile Include="CjkRadicals\CjkRadicalsTable.cs" />
+    <Compile Include="DataCommon\DataItemBase.cs" />
+    <Compile Include="DataCommon\TableBase.cs" />
+    <Compile Include="DataCommon\DataHelper.cs" />
+    <Compile Include="EmojiSource\EmojiSourceItem.cs" />
+    <Compile Include="EmojiSource\EmojiSourceTable.cs" />
+    <Compile Include="NamedSequence\NsItem.cs" />
+    <Compile Include="NamedSequence\NsTable.cs" />
+    <Compile Include="NormalizationCorrections\NcItem.cs" />
+    <Compile Include="NormalizationCorrections\NcTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repertoire\NameAlias.cs" />
+    <Compile Include="Repertoire\CharItem.cs" />
+    <Compile Include="Repertoire\RepertoireBase.cs" />
+    <Compile Include="Repertoire\RepertoireTable.cs" />
+    <Compile Include="StandardizedVariants\SvItem.cs" />
+    <Compile Include="StandardizedVariants\SvTable.cs" />
+    <Compile Include="Utility\ObjetCopy.cs" />
+    <Compile Include="XmlToDb.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Notes\UCD-Char Attribute List.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Notes\UCD-Char Atrribute List with Datatatype.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Notes\UCD Regular Expressions.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Notes\UCD-Reserved Attributre List.txt" />
+    <None Include="Notes\UCD-surrogate Attribure List.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Notes\Unicode Attribute Map.txt" />
+    <None Include="Notes\UCD Attribute Notes.txt" />
+    <None Include="Notes\Errors.txt" />
+    <None Include="Notes\Attribute List Complete.txt" />
+    <Content Include="Notes\UCD-Char Attribure List Alt.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dictionary\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

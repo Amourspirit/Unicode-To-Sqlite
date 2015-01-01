@@ -1,0 +1,12 @@
+﻿Regular Expression for various text and code minipulations.
+-----------------------------------------------------------
+
+XML Attributes:
+---------------
+To get all the attributes from an XML Element Using Expresso
+Copy and xml element into the sample text window.
+Regex Find:			(?<=\s)([0-9A-Za-z_-]+)(?=\=)
+Run Match
+Tools/Export Results/Matched Text only...
+
+Regular expression to select all attributes		([0-9A-Za-z_-]+)
