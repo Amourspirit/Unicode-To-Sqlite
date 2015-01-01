@@ -5,7 +5,7 @@ Reads Unicode Xml file, parses all the values and writes them into a sqlite data
 
 **This is a comand line project developed in c#**
 
-The purpose of this project to convert unicode xml ][/ucd.all.flat.xml](https://github.com/behnam/unicode-ucdxml/blob/master/ucd.all.flat.xml)
+The purpose of this project to convert unicode xml [ucd.all.flat.xml](https://github.com/behnam/unicode-ucdxml/blob/master/ucd.all.flat.xml)
 into a sqlite database.
 
 The binaries can be found in the binaries folder. Of the commpiled project.
