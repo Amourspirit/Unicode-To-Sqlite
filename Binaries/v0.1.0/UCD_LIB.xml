@@ -1,0 +1,403 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UCD_LIB</name>
+    </assembly>
+    <members>
+        <member name="M:UCD.DataCommon.DataItemBase.PopulateFromElement(System.Xml.Linq.XElement)">
+            <summary>
+            Populates the class with data from XElement
+            </summary>
+            <param name="el">
+            The XElement containing the data to populate the class with.
+            This is expected to ba an element from a UCD XML file - ucd/blocks elements.
+            </param>
+        </member>
+        <member name="M:UCD.DataCommon.DataItemBase.ToObjectDictinary">
+            <summary>
+            Creates a Dictionary of String Object representing the values of the class for use with sqllite
+            </summary>
+            <returns>Dictionary of String, Object representing the data of the class</returns>
+        </member>
+        <member name="P:UCD.DataCommon.DataItemBase.ElementName">
+            <summary>
+            The name of the Xml Element for this instance.
+            </summary>
+        </member>
+        <member name="M:UCD.Block.BlockItem.PopulateFromElement(System.Xml.Linq.XElement)">
+            <summary>
+            Populates the class with data from XElement
+            </summary>
+            <param name="el">
+            The XElement containing the data to populate the class with.
+            This is expected to ba an element from a UCD XML file - ucd/blocks elements.
+            </param>
+        </member>
+        <member name="M:UCD.Block.BlockItem.ToObjectDictinary">
+            <summary>
+            Creates a Dictionary of String Object representing the values of the class for use with sqllite
+            </summary>
+            <returns>Dictionary of String, Object representing the data of the class</returns>
+        </member>
+        <member name="M:UCD.DataCommon.TableBase.TestConnection">
+            <summary>
+            Test the current database connection to the database file passed into the constructor.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UCD.Block.BlockTable.CreateTable">
+            <summary>
+            Creates Repertoire table in database with all the necessary columns.
+            Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="M:UCD.CjkRadicals.CjkRadicalsTable.CreateTable">
+            <summary>
+            Creates Repertoire table in database with all the necessary columns.
+            Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="T:UCD.DataCommon.DataHelper">
+            <summary>
+            Misc methods for helping process data
+            </summary>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.StringToBool(System.String)">
+            <summary>
+            Static method. Converts expected xml values from string to boolean values for UCD xml entries
+            </summary>
+            <param name="value">
+            The string to parse for string representations of boolean.Case Insensitive.
+            Valid values are Y,N,1,0,t,f,true,false
+            </param>
+            <returns>
+            Return true if a valid true value if found in <paramref name="value"/> otherwise false.
+            </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.YesNoMabeyToInt32(System.String)">
+            <summary>
+            Static method. Converts expected xml values from string to Yes,No, Maybe for UCD xml entries
+            </summary>
+            <param name="value">
+            The string to parse for string representations of Yes, No, Maybe. Case Insensitive.
+            Valid values are Y,N,M
+            </param>
+            <returns>
+            Return 0 for false, 1 for true and 2 for Maybe if found in <paramref name="value"/> otherwise 0.
+            </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.ThrowIfNull(System.String)">
+            <summary>
+            Static method. Throws Exception if <paramref name="value"/> is null or white space value
+            </summary>
+            <param name="value">The string value to check</param>
+            <returns>
+            <paramref name="vlaue"/> if no exception is thrown.
+            </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.ThrowIfNull(System.String,System.String)">
+            <summary>
+            Static method. Throws Exception if <paramref name="value"/> is null or white space value
+            </summary>
+            <param name="value">The string value to check</param>
+            <param name="ParamName">The name of the parameter that is being checked</param>
+            <returns>
+            <paramref name="vlaue"/> if no exception is thrown.
+            </returns>
+            <remarks>
+            If null exception thrown will contain <paramref name="ParaName"/> in the message.
+            </remarks>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.StringToDecimal(System.String)">
+            <summary>
+            Static Method. Converts expected xml values from string to decimal values for UCD xml entries
+            </summary>
+            <param name="value">The string to convert to decimal.</param>
+            <returns>
+            Returns <paramref name="value"/> as decimal if successful conversion.
+            If conversion fails 0.0 is returned
+            </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.StringToDecimal(System.String,System.Decimal)">
+            <summary>
+            Static Method. Converts expected xml values from string to decimal values for UCD xml entries
+            </summary>
+            <param name="value">The string to convert to decimal.</param>
+            <param name="DefaultVal">The decimal value to retrun if conversion fails</param>
+            <returns>
+            Returns <paramref name="value"/> as decimal if successful conversion otherwise
+            returns <paramref name="DefaultVal"/>
+            </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.StringToInt32(System.String)">
+            <summary>
+            Static Method. Converts expected xml values from string to integer values for UCD xml entries
+            </summary>
+            <param name="value">The string value to convert for interger</param>
+            <returns>
+            Returns <paramref name="value"/> as decimal if successful conversion.
+            If conversion fails 0.0 is returned
+            </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.StringToInt32(System.String,System.Int32)">
+            <summary>
+            Static Method. Converts expected xml values from string to integer values for UCD xml entries
+            </summary>
+            <param name="value">The string to convert to integer.</param>
+            <param name="DefaultVal">The integer value to retrun if conversion fails</param>
+            <returns>
+            Returns <paramref name="value"/> as integer if successful conversion otherwise
+            returns <paramref name="DefaultVal"/>
+            </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.HexStringToInt32(System.String)">
+            <summary>
+            Static Method. Converts expected xml values from string containing HEX value to integer values for UCD xml entries
+            </summary>
+            <param name="value">The string containing HEX value to convert to integer.</param>
+            <returns>
+            Returns <paramref name="value"/> as integer if successful conversion.
+            If conversion fails 0 is returned
+            </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.HexStringToInt32(System.String,System.Int32)">
+            <summary>
+            Static Method. Converts expected xml values from string containing HEX value to integer values for UCD xml entries
+            </summary>
+            <param name="value">The string containing HEX value to convert to integer.</param>
+            <param name="DefaultVal">The integer value to retrun if conversion fails</param>
+            <returns>
+            Returns <paramref name="value"/> as integer if successful conversion otherwise
+            returns <paramref name="DefaultVal"/>
+            </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.HexStringToInt32Null(System.String)">
+            <summary>
+            Static Method. Converts expected xml values from string containing HEX value to integer values for UCD xml entries
+            </summary>
+            <param name="value">The string containing HEX value to convert to integer.</param>
+            <returns>
+            Returns <paramref name="value"/> as integer if successful conversion.
+            If conversion fails null is returned
+            </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.SplitHexString(System.String)">
+            <summary>
+            Converts strings containg hex values ("304B 309A") seperated by white space into a list of integers.
+            </summary>
+            <param name="input">The string to split from hex values to integer list</param>
+            <returns>
+            Returns a list of integer representing the the hex values in the order the hex values
+            are found in <paramref name="input"/>. If not match is found an empty list of integer is returned
+            </returns>
+            <remarks>
+            There is not limit to the number of Hex values that can be parsed at once.
+            Some valid values for <paramref name="input"/>: "23AB" "27ac A56B" "8BC3 B3F5 1455   34FD F49A"
+            The number or white spaces between hex values in the string does not matter.
+            </remarks>
+        </member>
+        <member name="M:UCD.EmojiSource.EmojiSourceTable.CreateTable">
+            <summary>
+            Creates Repertoire table in database with all the necessary columns.
+            Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="M:UCD.NamedSequence.NsItem.PopulateFromElement(System.Xml.Linq.XElement)">
+            <summary>
+            Populates the class with data from XElement
+            </summary>
+            <param name="el">
+            The XElement containing the data to populate the class with.
+            This is expected to ba an element from a UCD XML file - ucd/blocks elements.
+            </param>
+        </member>
+        <member name="M:UCD.NamedSequence.NsItem.ToObjectDictinary">
+            <summary>
+            Creates a Dictionary of String Object representing the values of the class for use with sqllite
+            </summary>
+            <returns>Dictionary of String, Object representing the data of the class</returns>
+        </member>
+        <member name="M:UCD.NamedSequence.NsTable.CreateTable">
+            <summary>
+            Creates Repertoire table in database with all the necessary columns.
+            Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="M:UCD.NormalizationCorrections.NcTable.CreateTable">
+            <summary>
+            Creates Repertoire table in database with all the necessary columns.
+            Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="T:UCD.Repertoire.CharItem">
+            <summary>
+            Represents a char Element in UCD xml
+            </summary>
+        </member>
+        <member name="M:UCD.Repertoire.RepertoireBase.PopulateFromElement(System.Xml.Linq.XElement)">
+            <summary>
+            Populates the class with data from XElement
+            </summary>
+            <param name="el">
+            The XElement containing the data to populate the class with.
+            This is expected to ba an element from a UCD XML file - ucd/repertoire elements.
+            </param>
+        </member>
+        <member name="M:UCD.Repertoire.RepertoireBase.ToObjectDictinary">
+            <summary>
+            Creates a Dictionary of String Object representing the values of the class for use with sqllite
+            </summary>
+            <returns>Dictionary of String, Object representing the data of the class</returns>
+        </member>
+        <member name="M:UCD.Repertoire.CharItem.HasCp">
+            <summary>
+            Gest if the <see cref="T:UCD.Repertoire.CharItem"/> <see cref="!:CharItem.cp"/> has a value.
+            </summary>
+            <returns>
+            Returns true if <see cref="!:CharItem.cp"/> has a value otherwise false.
+            </returns>
+            <remarks>
+            <see cref="T:UCD.Repertoire.CharItem"/> can have two states. <see cref="!:CharItem.cp"/> can have a value
+            or <see cref="!:CharItem.first_cp"/> and <see cref="!:CharItem.last_cp"/> can have values.
+            </remarks>
+        </member>
+        <member name="M:UCD.Repertoire.CharItem.PopulateFromElement(System.Xml.Linq.XElement)">
+            <summary>
+            Populates the class with data from XElement
+            </summary>
+            <param name="el">
+            The XElement containing the data to populate the class with.
+            This is expected to ba an element from a UCD XML file - ucd/repertoire elements.
+            </param>
+        </member>
+        <member name="P:UCD.Repertoire.CharItem.IsRangeChar">
+            <summary>
+            Checks to see if this CharItem is has a range or is a single code point.
+            </summary>
+        </member>
+        <member name="T:UCD.Repertoire.RepertoireTable">
+            <summary>
+            Creates Tables in a database for UCD entries
+            </summary>
+        </member>
+        <member name="M:UCD.Repertoire.RepertoireTable.#ctor(System.String)">
+            <summary>
+            constructor for class
+            </summary>
+            <param name="dbFile">The full path to the sqlite database to use of operations.</param>
+        </member>
+        <member name="M:UCD.Repertoire.RepertoireTable.CreateTables">
+            <summary>
+            Creates tables in database for Repertoire and NameAlias with all the necessary columns.
+            Tables are only created if they do not exist.
+            </summary>
+        </member>
+        <member name="M:UCD.Repertoire.RepertoireTable.CreateRepertoireTable">
+            <summary>
+            Creates Repertoire table in database with all the necessary columns.
+            Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="M:UCD.Repertoire.RepertoireTable.CreateNameAliasTable">
+            <summary>
+             Creates NameAlias table in database with all the necessary columns.
+             Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="M:UCD.StandardizedVariants.SvTable.CreateTable">
+            <summary>
+            Creates Repertoire table in database with all the necessary columns.
+            Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="T:UCD.Utility.ObjectCopier">
+            <summary>
+            Reference Article http://www.codeproject.com/KB/tips/SerializedObjectCloner.aspx
+            Provides a method for performing a deep copy of an object.
+            Binary Serialization is used to perform the copy.
+            </summary>
+        </member>
+        <member name="M:UCD.Utility.ObjectCopier.Clone``1(``0)">
+            <summary>
+            Perform a deep Copy of the object.
+            </summary>
+            <typeparam name="T">The type of object being copied.</typeparam>
+            <param name="source">The object instance to copy.</param>
+            <returns>The copied object.</returns>
+        </member>
+        <member name="M:UCD.XmlToDb.#ctor(System.String)">
+            <summary>
+            Constructs a new instance of the class
+            </summary>
+            <param name="dbFile">The full path to the SqLite Database file to write xml values into</param>
+        </member>
+        <member name="M:UCD.XmlToDb.#ctor(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="dbFile"></param>
+            <param name="dbFile">The full path to the SqLite Database file to write xml values into</param>
+            <param name="Maxchars">
+            The max number of repertoire values to read and write into the database.
+            A common number is 65535 and is the default
+            </param>
+        </member>
+        <member name="M:UCD.XmlToDb.TestConnection">
+            <summary>
+            Test the current database connection to the database file passed into the constructor.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:UCD.XmlToDb.MaxCharValue">
+            <summary>
+            The maximum number of element to read from xml and write to database.
+            Default value is 65535
+            </summary>
+        </member>
+        <member name="P:UCD.XmlToDb.ProcessRepertoireXml">
+            <summary>
+            If true then Repertoire items will be processed and written into Database.
+            Default is true.
+            </summary>
+            <remarks>
+            <typeparamref name="ProcessRepertoireXml"/> is affected by <typeparamref name="MaxCharValue"/>
+            </remarks>
+        </member>
+        <member name="P:UCD.XmlToDb.ProcessBlocksXml">
+            <summary>
+            If true then Block items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
+        <member name="P:UCD.XmlToDb.ProcessNamedSequences">
+            <summary>
+            If true then Named Sequences items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
+        <member name="P:UCD.XmlToDb.ProcessNormalizationCorrections">
+            <summary>
+            If true then Normalization Corrections items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
+        <member name="P:UCD.XmlToDb.ProcesStandardizedVariants">
+            <summary>
+            If true then Standardized Variants items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
+        <member name="P:UCD.XmlToDb.ProcessCjkRadicals">
+            <summary>
+            If true then Cjk Radicals items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
+        <member name="P:UCD.XmlToDb.ProcessEmojiSource">
+            <summary>
+            If true then Emoji Source items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
+    </members>
+</doc>

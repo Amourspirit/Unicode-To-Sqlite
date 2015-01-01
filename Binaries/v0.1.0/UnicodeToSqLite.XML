@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UnicodeToSqLite</name>
+    </assembly>
+    <members>
+        <member name="P:UnicodeToSqLite.Program.Options.MaxCharValue">
+            <summary>
+            The maximum number of element to read from xml and write to database.
+            Default value is 65535
+            </summary>
+        </member>
+        <member name="P:UnicodeToSqLite.Program.Options.ProcessRepertoireXml">
+            <summary>
+            If true then Repertoire items will be processed and written into Database.
+            Default is true.
+            </summary>
+            <remarks>
+            <typeparamref name="ProcessRepertoireXml"/> is affected by <typeparamref name="MaxCharValue"/>
+            </remarks>
+        </member>
+        <member name="P:UnicodeToSqLite.Program.Options.ProcessBlocksXml">
+            <summary>
+            If true then Block items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
+        <member name="P:UnicodeToSqLite.Program.Options.ProcessNamedSequences">
+            <summary>
+            If true then Named Sequences items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
+        <member name="P:UnicodeToSqLite.Program.Options.ProcessNormalizationCorrections">
+            <summary>
+            If true then Normalization Corrections items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
+        <member name="P:UnicodeToSqLite.Program.Options.ProcesStandardizedVariants">
+            <summary>
+            If true then Standardized Variants items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
+        <member name="P:UnicodeToSqLite.Program.Options.ProcessCjkRadicals">
+            <summary>
+            If true then Cjk Radicals items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
+        <member name="P:UnicodeToSqLite.Program.Options.ProcessEmojiSource">
+            <summary>
+            If true then Emoji Source items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
+    </members>
+</doc>
