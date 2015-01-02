@@ -8,6 +8,9 @@ using UCD.DataCommon;
 
 namespace UCD.EmojiSource
 {
+    /// <summary>
+    /// Drops and/or Creates table for UCD entries EmojiSource
+    /// </summary>
     public class EmojiSourceTable : TableBase
     {
          internal static String TableName = "emojiSource";
@@ -15,8 +18,8 @@ namespace UCD.EmojiSource
          public EmojiSourceTable(string dbFile) : base(dbFile) { }
 
        
-         /// <summary>
-        /// Creates Repertoire table in database with all the necessary columns.
+        /// <summary>
+         /// Creates EmojiSource table in database with all the necessary columns.
         /// Table is only created if it does not exist.
         /// </summary>
         public void CreateTable()
@@ -43,13 +46,16 @@ namespace UCD.EmojiSource
             }
             catch (Exception e)
             {
-                Exception ex = new Exception("An error occured attempting to creating repertoire table!", e);
+                Exception ex = new Exception("An error occured attempting to creating table: " + TableName, e);
                 throw ex;
             }
 
 
         }
 
+        /// <summary>
+        /// Drops EmojiSource table from database
+        /// </summary>
         public void DropTable()
         {
             try
@@ -66,7 +72,7 @@ namespace UCD.EmojiSource
             }
             catch (Exception e)
             {
-                Exception ex = new Exception("An error occured attempting to creating " + TableName, e);
+                Exception ex = new Exception("An error occured attempting to drop table: " + TableName, e);
                 throw ex;
             }
         }

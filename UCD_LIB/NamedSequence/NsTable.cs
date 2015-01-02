@@ -8,6 +8,9 @@ using System.Data.SQLite;
 
 namespace UCD.NamedSequence
 {
+    /// <summary>
+    /// Drops and/or Creates table for UCD entries NamedSequences
+    /// </summary>
     public class NsTable : UCD.DataCommon.TableBase
     {
         internal static String TableName = "namedSequences";
@@ -15,8 +18,8 @@ namespace UCD.NamedSequence
         public NsTable(string dbFile)
             : base(dbFile) { }
 
-         /// <summary>
-        /// Creates Repertoire table in database with all the necessary columns.
+        /// <summary>
+        /// Creates NamedSequences table in database with all the necessary columns.
         /// Table is only created if it does not exist.
         /// </summary>
         public void CreateTable()
@@ -34,8 +37,6 @@ namespace UCD.NamedSequence
 
                     tb.Columns.Add(new SQLiteColumn("id", ColType.Integer, true, true, true, "0"));
                     tb.Columns.Add(new SQLiteColumn("cps", ColType.Text, false, false, true, ""));
-                    //tb.Columns.Add(new SQLiteColumn("first_cp", ColType.Integer, false, false, true, ""));
-                    //tb.Columns.Add(new SQLiteColumn("last_cp", ColType.Integer, false, false, true, ""));
                     tb.Columns.Add(new SQLiteColumn("name"));
 
 
@@ -45,13 +46,16 @@ namespace UCD.NamedSequence
             }
             catch (Exception e)
             {
-                Exception ex = new Exception("An error occured attempting to creating repertoire table!", e);
+                Exception ex = new Exception("An error occured attempting to creating table: " + TableName, e);
                 throw ex;
             }
 
 
         }
 
+        /// <summary>
+        /// Drops NamedSequences table from database
+        /// </summary>
         public void DropTable()
         {
             try
@@ -68,7 +72,7 @@ namespace UCD.NamedSequence
             }
             catch (Exception e)
             {
-                Exception ex = new Exception("An error occured attempting to creating " + TableName, e);
+                Exception ex = new Exception("An error occured attempting to drop table: " + TableName, e);
                 throw ex;
             }
         }

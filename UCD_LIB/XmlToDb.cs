@@ -328,7 +328,6 @@ namespace UCD
             }
            
             #endregion
-
             #region Process Blocks
             if (this.ProcessBlocksXml == true)
             {
@@ -345,7 +344,7 @@ namespace UCD
                     }
 
                     this.OnReadBlockElement(itm);
-                    this.DataItemToDB(itm, UCD.Block.BlockTable.BlockTableName);
+                    this.DataItemToDB(itm, UCD.Block.BlockTable.TableName);
                     iCount++;
                 }
             }

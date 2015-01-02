@@ -24,19 +24,13 @@ namespace UCD.NamedSequence
         /// </summary>
         /// <param name="el">
         /// The XElement containing the data to populate the class with.
-        /// This is expected to ba an element from a UCD XML file - ucd/blocks elements.
+        /// This is expected to ba an element from a UCD XML file - ucd/named-sequences elements.
         /// </param>
         public override void PopulateFromElement(System.Xml.Linq.XElement el)
         {
             this.ElementName = el.Name.LocalName;
             String _cps = el.Attribute("cps").Value;
             this.CodePoints = _cps;
-            //List<Int32> FirstLast = DataHelper.SplitHexString(_cps);
-            //if (FirstLast.Count == 2)
-            //{
-            //    this.FirstCodePoint = FirstLast[0];
-            //    this.LastCodePoint = FirstLast[1];
-            //}
             this.Name = (string)el.Attribute("name") ?? string.Empty;
         }
         #endregion
@@ -48,9 +42,6 @@ namespace UCD.NamedSequence
         public override Dictionary<string, object> ToObjectDictinary()
         {
             var ciDic = new Dictionary<string, object>();
-
-            //ciDic["first_cp"] = this.FirstCodePoint;
-            //ciDic["last_cp"] = this.LastCodePoint;
             ciDic["cps"] = this.CodePoints;
             ciDic["name"] = this.Name;
 

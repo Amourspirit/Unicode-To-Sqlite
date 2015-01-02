@@ -8,7 +8,7 @@ using System.Data.SQLite;
 namespace UCD.Repertoire
 {
     /// <summary>
-    /// Creates Tables in a database for UCD entries
+    /// Drops and/or Creates Tables in a database for UCD entries Repertoire and NameAlias
     /// </summary>
     public class RepertoireTable : UCD.DataCommon.TableBase
     {
@@ -22,6 +22,9 @@ namespace UCD.Repertoire
         public RepertoireTable(string dbFile) : base(dbFile) { }
         
 
+        /// <summary>
+        /// Drops all Repertoire related tables from the database.
+        /// </summary>
         public void DropTables() 
         {
             this.DropNameAliasTable();
@@ -29,6 +32,9 @@ namespace UCD.Repertoire
 
         }
 
+        /// <summary>
+        /// Drops Repertoire table from the database.
+        /// </summary>
         public void DropRepertoireTable()
         {
             try
@@ -45,11 +51,14 @@ namespace UCD.Repertoire
             }
             catch (Exception e)
             {
-                Exception ex = new Exception("An error occured attempting to creating repertoire table!", e);
+                Exception ex = new Exception("An error occured attempting to creating table: " + RepertoireTableName, e);
                 throw ex;
             }
         }
 
+        /// <summary>
+        /// Drops namealias table from the database.
+        /// </summary>
         public void DropNameAliasTable()
         {
             try
@@ -66,7 +75,7 @@ namespace UCD.Repertoire
             }
             catch (Exception e)
             {
-                Exception ex = new Exception("An error occured attempting to creating repertoire table!", e);
+                Exception ex = new Exception("An error occured attempting to creating table: " + NameAliasTableName , e);
                 throw ex;
             }
         }
@@ -219,7 +228,7 @@ namespace UCD.Repertoire
             }
             catch (Exception e)
             {
-                Exception ex = new Exception("An error occured attempting to creating repertoire table!", e);
+                Exception ex = new Exception("An error occured attempting to creating table: " + RepertoireTableName, e);
                 throw ex;
             }
            
@@ -262,7 +271,7 @@ namespace UCD.Repertoire
             }
             catch (Exception e)
             {
-                Exception ex = new Exception("An error occured attempting to creating repertoire table!", e);
+                Exception ex = new Exception("An error occured attempting to creating table: " + NameAliasTableName, e);
                 throw ex;
             }
 

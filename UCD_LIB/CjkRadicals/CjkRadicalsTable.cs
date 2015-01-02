@@ -8,13 +8,16 @@ using UCD.DataCommon;
 
 namespace UCD.CjkRadicals
 {
+    /// <summary>
+    /// Drops and/or Creates table for UCD entries CjkRadicals
+    /// </summary>
     public class CjkRadicalsTable : TableBase
     {
         internal static String TableName = "cjkRadicals";
         public CjkRadicalsTable(String dbFile) : base(dbFile) { }
 
         /// <summary>
-        /// Creates Repertoire table in database with all the necessary columns.
+        /// Creates CjkRadicals table in database with all the necessary columns.
         /// Table is only created if it does not exist.
         /// </summary>
         public void CreateTable()
@@ -40,13 +43,15 @@ namespace UCD.CjkRadicals
             }
             catch (Exception e)
             {
-                Exception ex = new Exception("An error occured attempting to creating repertoire table!", e);
+                Exception ex = new Exception("An error occured attempting to creating table: " + TableName, e);
                 throw ex;
             }
 
 
         }
-
+        /// <summary>
+        /// Drops CjkRadicals table from database
+        /// </summary>
         public void DropTable()
         {
             try
@@ -63,7 +68,7 @@ namespace UCD.CjkRadicals
             }
             catch (Exception e)
             {
-                Exception ex = new Exception("An error occured attempting to creating repertoire table!", e);
+                Exception ex = new Exception("An error occured attempting to drop table: " + TableName, e);
                 throw ex;
             }
         }

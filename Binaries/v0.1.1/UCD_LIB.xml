@@ -39,6 +39,11 @@
             </summary>
             <returns>Dictionary of String, Object representing the data of the class</returns>
         </member>
+        <member name="T:UCD.Block.BlockTable">
+            <summary>
+            Drops and/or Creates table for UCD entries Blocks
+            </summary>
+        </member>
         <member name="M:UCD.DataCommon.TableBase.TestConnection">
             <summary>
             Test the current database connection to the database file passed into the constructor.
@@ -47,14 +52,44 @@
         </member>
         <member name="M:UCD.Block.BlockTable.CreateTable">
             <summary>
-            Creates Repertoire table in database with all the necessary columns.
+            Creates Blocks table in database with all the necessary columns.
             Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="M:UCD.Block.BlockTable.DropTable">
+            <summary>
+            Drops Blocks table from database
+            </summary>
+        </member>
+        <member name="M:UCD.CjkRadicals.CjkRadicalsItem.PopulateFromElement(System.Xml.Linq.XElement)">
+            <summary>
+            Populates the class with data from XElement
+            </summary>
+            <param name="el">
+            The XElement containing the data to populate the class with.
+            This is expected to ba an element from a UCD XML file - ucd/cjk-radicals elements.
+            </param>
+        </member>
+        <member name="M:UCD.CjkRadicals.CjkRadicalsItem.ToObjectDictinary">
+            <summary>
+            Creates a Dictionary of String Object representing the values of the class for use with sqllite
+            </summary>
+            <returns>Dictionary of String, Object representing the data of the class</returns>
+        </member>
+        <member name="T:UCD.CjkRadicals.CjkRadicalsTable">
+            <summary>
+            Drops and/or Creates table for UCD entries CjkRadicals
             </summary>
         </member>
         <member name="M:UCD.CjkRadicals.CjkRadicalsTable.CreateTable">
             <summary>
-            Creates Repertoire table in database with all the necessary columns.
+            Creates CjkRadicals table in database with all the necessary columns.
             Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="M:UCD.CjkRadicals.CjkRadicalsTable.DropTable">
+            <summary>
+            Drops CjkRadicals table from database
             </summary>
         </member>
         <member name="T:UCD.DataCommon.DataHelper">
@@ -196,10 +231,35 @@
             The number or white spaces between hex values in the string does not matter.
             </remarks>
         </member>
+        <member name="M:UCD.EmojiSource.EmojiSourceItem.PopulateFromElement(System.Xml.Linq.XElement)">
+            <summary>
+            Populates the class with data from XElement
+            </summary>
+            <param name="el">
+            The XElement containing the data to populate the class with.
+            This is expected to ba an element from a UCD XML file - ucd/emoji-sources elements.
+            </param>
+        </member>
+        <member name="M:UCD.EmojiSource.EmojiSourceItem.ToObjectDictinary">
+            <summary>
+            Creates a Dictionary of String Object representing the values of the class for use with sqllite
+            </summary>
+            <returns>Dictionary of String, Object representing the data of the class</returns>
+        </member>
+        <member name="T:UCD.EmojiSource.EmojiSourceTable">
+            <summary>
+            Drops and/or Creates table for UCD entries EmojiSource
+            </summary>
+        </member>
         <member name="M:UCD.EmojiSource.EmojiSourceTable.CreateTable">
             <summary>
-            Creates Repertoire table in database with all the necessary columns.
+            Creates EmojiSource table in database with all the necessary columns.
             Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="M:UCD.EmojiSource.EmojiSourceTable.DropTable">
+            <summary>
+            Drops EmojiSource table from database
             </summary>
         </member>
         <member name="M:UCD.NamedSequence.NsItem.PopulateFromElement(System.Xml.Linq.XElement)">
@@ -208,7 +268,7 @@
             </summary>
             <param name="el">
             The XElement containing the data to populate the class with.
-            This is expected to ba an element from a UCD XML file - ucd/blocks elements.
+            This is expected to ba an element from a UCD XML file - ucd/named-sequences elements.
             </param>
         </member>
         <member name="M:UCD.NamedSequence.NsItem.ToObjectDictinary">
@@ -217,16 +277,51 @@
             </summary>
             <returns>Dictionary of String, Object representing the data of the class</returns>
         </member>
+        <member name="T:UCD.NamedSequence.NsTable">
+            <summary>
+            Drops and/or Creates table for UCD entries NamedSequences
+            </summary>
+        </member>
         <member name="M:UCD.NamedSequence.NsTable.CreateTable">
             <summary>
-            Creates Repertoire table in database with all the necessary columns.
+            Creates NamedSequences table in database with all the necessary columns.
             Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="M:UCD.NamedSequence.NsTable.DropTable">
+            <summary>
+            Drops NamedSequences table from database
+            </summary>
+        </member>
+        <member name="M:UCD.NormalizationCorrections.NcItem.PopulateFromElement(System.Xml.Linq.XElement)">
+            <summary>
+            Populates the class with data from XElement
+            </summary>
+            <param name="el">
+            The XElement containing the data to populate the class with.
+            This is expected to ba an element from a UCD XML file - ucd/normalization-corrections elements.
+            </param>
+        </member>
+        <member name="M:UCD.NormalizationCorrections.NcItem.ToObjectDictinary">
+            <summary>
+            Creates a Dictionary of String Object representing the values of the class for use with sqllite
+            </summary>
+            <returns>Dictionary of String, Object representing the data of the class</returns>
+        </member>
+        <member name="T:UCD.NormalizationCorrections.NcTable">
+            <summary>
+            Drops and/or Creates table for UCD entries NormalizationCorrections
             </summary>
         </member>
         <member name="M:UCD.NormalizationCorrections.NcTable.CreateTable">
             <summary>
-            Creates Repertoire table in database with all the necessary columns.
+            Creates normalizationCorrections table in database with all the necessary columns.
             Table is only created if it does not exist.
+            </summary>
+        </member>
+        <member name="M:UCD.NormalizationCorrections.NcTable.DropTable">
+            <summary>
+            Drops normalizationCorrections table from database
             </summary>
         </member>
         <member name="T:UCD.Repertoire.CharItem">
@@ -277,7 +372,7 @@
         </member>
         <member name="T:UCD.Repertoire.RepertoireTable">
             <summary>
-            Creates Tables in a database for UCD entries
+            Drops and/or Creates Tables in a database for UCD entries Repertoire and NameAlias
             </summary>
         </member>
         <member name="M:UCD.Repertoire.RepertoireTable.#ctor(System.String)">
@@ -285,6 +380,21 @@
             constructor for class
             </summary>
             <param name="dbFile">The full path to the sqlite database to use of operations.</param>
+        </member>
+        <member name="M:UCD.Repertoire.RepertoireTable.DropTables">
+            <summary>
+            Drops all Repertoire related tables from the database.
+            </summary>
+        </member>
+        <member name="M:UCD.Repertoire.RepertoireTable.DropRepertoireTable">
+            <summary>
+            Drops Repertoire table from the database.
+            </summary>
+        </member>
+        <member name="M:UCD.Repertoire.RepertoireTable.DropNameAliasTable">
+            <summary>
+            Drops namealias table from the database.
+            </summary>
         </member>
         <member name="M:UCD.Repertoire.RepertoireTable.CreateTables">
             <summary>
@@ -303,6 +413,21 @@
              Creates NameAlias table in database with all the necessary columns.
              Table is only created if it does not exist.
             </summary>
+        </member>
+        <member name="M:UCD.StandardizedVariants.SvItem.PopulateFromElement(System.Xml.Linq.XElement)">
+            <summary>
+            Populates the class with data from XElement
+            </summary>
+            <param name="el">
+            The XElement containing the data to populate the class with.
+            This is expected to ba an element from a UCD XML file - ucd/blocks elements.
+            </param>
+        </member>
+        <member name="M:UCD.StandardizedVariants.SvItem.ToObjectDictinary">
+            <summary>
+            Creates a Dictionary of String Object representing the values of the class for use with sqllite
+            </summary>
+            <returns>Dictionary of String, Object representing the data of the class</returns>
         </member>
         <member name="M:UCD.StandardizedVariants.SvTable.CreateTable">
             <summary>

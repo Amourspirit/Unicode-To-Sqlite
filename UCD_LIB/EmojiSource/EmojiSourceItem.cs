@@ -20,6 +20,13 @@ namespace UCD.EmojiSource
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Populates the class with data from XElement
+        /// </summary>
+        /// <param name="el">
+        /// The XElement containing the data to populate the class with.
+        /// This is expected to ba an element from a UCD XML file - ucd/emoji-sources elements.
+        /// </param>
         public override void PopulateFromElement(System.Xml.Linq.XElement el)
         {
             this.ElementName = el.Name.LocalName;
@@ -29,6 +36,10 @@ namespace UCD.EmojiSource
             this.Softbank = DataHelper.HexStringToInt32Null(el.Attribute("softbank").Value);
         }
 
+        /// <summary>
+        /// Creates a Dictionary of String Object representing the values of the class for use with sqllite
+        /// </summary>
+        /// <returns>Dictionary of String, Object representing the data of the class</returns>
         public override Dictionary<string, object> ToObjectDictinary()
         {
             var ciDic = new Dictionary<string, object>();
