@@ -91,6 +91,12 @@ ipch/
 *.vsp
 *.vspx
 
+#Binaries
+*.vshost.exe
+*.exe.config
+*.pdb
+*.manifest
+
 # Guidance Automation Toolkit
 *.gpState
 
