@@ -29,9 +29,9 @@ namespace UCD.StandardizedVariants
         public override void PopulateFromElement(System.Xml.Linq.XElement el)
         {
             this.ElementName = el.Name.LocalName;
-            this.CodePoints = (string)el.Attribute("cps") ?? string.Empty;
-            this.Description = (string)el.Attribute("desc") ?? string.Empty;
-            this.When = (string)el.Attribute("when") ?? string.Empty;
+            this.CodePoints = el.Attribute("cps").Value;
+            this.Description = el.Attribute("desc").Value;
+            this.When = (String)el.Attribute("when");
         }
 
         /// <summary>

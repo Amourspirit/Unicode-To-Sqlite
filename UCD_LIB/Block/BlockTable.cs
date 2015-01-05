@@ -35,11 +35,9 @@ namespace UCD.Block
                     SQLiteTable tb = new SQLiteTable(TableName);
 
                     tb.Columns.Add(new SQLiteColumn("id", ColType.Integer, true, true, true, "0"));
-                    tb.Columns.Add(new SQLiteColumn("first_cp", ColType.Integer));
-                    tb.Columns.Add(new SQLiteColumn("last_cp", ColType.Integer));
+                    tb.Columns.Add(new SQLiteColumn("first_cp", ColType.Integer, false, false, true, "0"));
+                    tb.Columns.Add(new SQLiteColumn("last_cp", ColType.Integer, false, false, true, "0"));
                     tb.Columns.Add(new SQLiteColumn("name"));
-
-
                     sh.CreateTable(tb);
                     conn.Close();
                 }

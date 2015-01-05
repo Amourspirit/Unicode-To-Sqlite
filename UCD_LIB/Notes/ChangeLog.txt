@@ -1,0 +1,24 @@
+﻿Change Log
+==========
+
+Version 0.1.2
+This file created
+Many attributes added to Repertoire ( now all attributes are parsed from xml )
+Repertoire Table has been update to have more nullable colums other then empty values
+Block Table update to contain more restriants on cp_fist and cp_last.
+Named Sequences Table update to include Parent Element Name. Distinguish named-sequences from provisional-named-sequences
+Named Sequences Table update to allow CodePoints (cps) to be nullable.
+Notes updated ( Some old notes removed and new revelant notes added )
+Standardized Variants Table and related classes updated to make desc field not nullable.
+CJK Radicals Table and related classes updated to make number field not nullable.
+CJK Radicals Table and related classes updated to make ideograph field nullable.
+Emoji sources Tabel and related Classes update to make Softbank property nullable.
+Map of Repertoire Attributes/Columns Updatded for parsing with regular expression to aid in code generation. "UCD Attribute Notes.txt"
+List of regular expressons that can be used to geneerate code add "Code Building Regular Expressons.txt". Use values from "UCD Attribute Notes.txt".
+New Option added to command line. This reflects creation of Planes table --cp
+Some code comments added/updated
+
+Version 0.1.1
+Update of a several Exception Messages
+Update of several code comments
+New code comments addded.

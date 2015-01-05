@@ -16,8 +16,8 @@ namespace UCD.Block
         #region Properties
         public Int64 ID { get; set; }
         public String Name { get; set; }
-        public Int32? FirstCodePoint { get; set; }
-        public Int32? LastCodePoint { get; set; }
+        public Int32 FirstCodePoint { get; set; }
+        public Int32 LastCodePoint { get; set; }
         #endregion
         #region Methods
         #region PopulateFromElement
@@ -31,9 +31,9 @@ namespace UCD.Block
         override public void  PopulateFromElement(XElement el)
         {
             this.ElementName = el.Name.LocalName;
-            this.FirstCodePoint = DataHelper.HexStringToInt32(el.Attribute("first-cp").Value);
-            this.LastCodePoint = DataHelper.HexStringToInt32(el.Attribute("last-cp").Value);
-            this.Name = (string)el.Attribute("name") ?? string.Empty;
+            this.FirstCodePoint = DataHelper.HexStringToInt32((String)el.Attribute("first-cp"));
+            this.LastCodePoint = DataHelper.HexStringToInt32((String)el.Attribute("last-cp"));
+            this.Name = (string)el.Attribute("name");
         }
         #endregion
         #region ToObjectDictinary

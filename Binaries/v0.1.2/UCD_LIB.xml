@@ -97,6 +97,16 @@
             Misc methods for helping process data
             </summary>
         </member>
+        <member name="M:UCD.DataCommon.DataHelper.StringToStringNull(System.String)">
+            <summary>
+            Static method. Converts string to null string if <paramref name="value"/> is null, empty, whitespace or #
+            </summary>
+            <param name="value">String to check to see if it has a valid value</param>
+            <returns>
+            If <paramref name="value"/> is valid then its value is returned.
+            If <paramref name="value"/> is null, empty, whitespace or equal to # then null is returned.
+            </returns>
+        </member>
         <member name="M:UCD.DataCommon.DataHelper.StringToBool(System.String)">
             <summary>
             Static method. Converts expected xml values from string to boolean values for UCD xml entries
@@ -111,14 +121,14 @@
         </member>
         <member name="M:UCD.DataCommon.DataHelper.YesNoMabeyToInt32(System.String)">
             <summary>
-            Static method. Converts expected xml values from string to Yes,No, Maybe for UCD xml entries
+            Static method. Converts expected xml values from string to Yes,No, Maybe or null for UCD xml entries
             </summary>
             <param name="value">
             The string to parse for string representations of Yes, No, Maybe. Case Insensitive.
             Valid values are Y,N,M
             </param>
             <returns>
-            Return 0 for false, 1 for true and 2 for Maybe if found in <paramref name="value"/> otherwise 0.
+            Return 0 for false, 1 for true and 2 for Maybe if found in <paramref name="value"/> otherwise null.
             </returns>
         </member>
         <member name="M:UCD.DataCommon.DataHelper.ThrowIfNull(System.String)">
@@ -155,7 +165,7 @@
         </member>
         <member name="M:UCD.DataCommon.DataHelper.StringToDecimal(System.String,System.Decimal)">
             <summary>
-            Static Method. Converts expected xml values from string to decimal values for UCD xml entries
+            Static Method. Converts expected xml values from string to decimal values for UCD xml entries.
             </summary>
             <param name="value">The string to convert to decimal.</param>
             <param name="DefaultVal">The decimal value to retrun if conversion fails</param>
@@ -164,14 +174,33 @@
             returns <paramref name="DefaultVal"/>
             </returns>
         </member>
+        <member name="M:UCD.DataCommon.DataHelper.StringtoDecimalNull(System.String)">
+            <summary>
+            Static Method. Converts expected xml values from string to decimal values for UCD xml entries or null.
+            </summary>
+            <param name="value">The string to convert to decimal.</param>
+            <returns>
+            Returns <paramref name="value"/> as decimal if successful conversion otherwise returns null.
+            </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.StringToInt32Null(System.String)">
+            <summary>
+            Static Method. Converts expected xml values from string to integer values or null for UCD xml entries.
+            </summary>
+            <param name="value">The string value to convert for interger</param>
+            <returns>
+            Returns <paramref name="value"/> as integer if successful conversion.
+            If conversion fails null is returned
+            </returns>
+        </member>
         <member name="M:UCD.DataCommon.DataHelper.StringToInt32(System.String)">
             <summary>
             Static Method. Converts expected xml values from string to integer values for UCD xml entries
             </summary>
             <param name="value">The string value to convert for interger</param>
             <returns>
-            Returns <paramref name="value"/> as decimal if successful conversion.
-            If conversion fails 0.0 is returned
+            Returns <paramref name="value"/> as integer if successful conversion.
+            If conversion fails -1 is returned
             </returns>
         </member>
         <member name="M:UCD.DataCommon.DataHelper.StringToInt32(System.String,System.Int32)">
@@ -192,7 +221,7 @@
             <param name="value">The string containing HEX value to convert to integer.</param>
             <returns>
             Returns <paramref name="value"/> as integer if successful conversion.
-            If conversion fails 0 is returned
+            If conversion fails -1 is returned
             </returns>
         </member>
         <member name="M:UCD.DataCommon.DataHelper.HexStringToInt32(System.String,System.Int32)">
@@ -215,6 +244,103 @@
             Returns <paramref name="value"/> as integer if successful conversion.
             If conversion fails null is returned
             </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.HexStringToInt32Null(System.String,System.Int16)">
+            <summary>
+            Static Method. Converts expected xml values from string containing HEX value to integer values for UCD xml entries for a exaxt length Hex value.
+            </summary>
+            <param name="value">The string containing the exact length HEX value to convert to integer.</param>
+            <param name="hexLength">The Exact length that the hex strin is required to be.</param>
+            <returns>
+            Returns <paramref name="value"/> as integer if successful conversion.
+            If conversion fails null is returned. If <paramref name="hexLength"/> is less than one then null is returned.
+            If any hex value is in <paramref name="value"/> and it is not exactly the same number of chars as <paramref name="hexLength"/> then
+            null is returned.
+            </returns>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.HexCodePointToInt32(System.String)">
+            <summary>
+            Static Method. Converts expected xml values from string containing HEX value to integer values for UCD xml entries
+            </summary>
+            <param name="value">
+            The string containing HEX value to convert to integer. Only Hex value of exactly 4 char can be parsed
+            </param>
+            <returns>
+            Returns <paramref name="value"/> as integer if successful conversion.
+            If conversion -1 is returned
+            </returns>
+            <remarks>
+            This method will only return an integer if <paramref name="value"/> contains a HEX value
+            that is exactly four chars.
+            </remarks>
+            <example>
+            String str1 = "AB45";
+            Int32 result = DataHelper.HexCodePointToInt32(str1); //result is 43845
+            String str2 = "#";
+            Int3? result = DataHelper.HexCodePointToInt32Null(str2); //result is -1
+            String str3 = "NaN";
+            Int32? result = DataHelper.HexCodePointToInt32Null(str3); //result is -1
+            String str4 = "01A";
+            Int32 result = DataHelper.HexCodePointToInt32Null(str4); //result is -1
+            String str5 = "0101A"; // to many chars must be exactly 4
+            Int32 result = DataHelper.HexCodePointToInt32Null(str5); //result is -1
+            </example>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.HexCodePointToInt32(System.String,System.Int32)">
+            <summary>
+            Static Method. Converts expected xml values from string containing HEX value to integer values for UCD xml entries
+            </summary>
+            <param name="value">
+            The string containing HEX value to convert to integer. Only Hex value of exactly 4 char can be parsed
+            </param>
+            <returns>
+            Returns <paramref name="value"/> as integer if successful conversion.
+            If conversion fails null is returned
+            </returns>
+            <remarks>
+            This method will only return an integer if <paramref name="value"/> contains a HEX value
+            that is exactly four chars.
+            </remarks>
+            <example>
+            String str1 = "AB45";
+            Int32 result = DataHelper.HexCodePointToInt32(str1); //result is 43845
+            String str2 = "#";
+            Int3? result = DataHelper.HexCodePointToInt32Null(str2); //result is the Int32 value passed into param DefaultVal
+            String str3 = "NaN";
+            Int32? result = DataHelper.HexCodePointToInt32Null(str3); //result is the Int32 value passed into param DefaultVal
+            String str4 = "01A";
+            Int32 result = DataHelper.HexCodePointToInt32Null(str4); //result is the Int32 value passed into param DefaultVal
+            String str5 = "0101A"; // to many chars must be exactly 4
+            Int32 result = DataHelper.HexCodePointToInt32Null(str5); //result is the Int32 value passed into param DefaultVal
+            </example>
+        </member>
+        <member name="M:UCD.DataCommon.DataHelper.HexCodePointToInt32Null(System.String)">
+            <summary>
+            Static Method. Converts expected xml values from string containing HEX value to integer values for UCD xml entries
+            </summary>
+            <param name="value">
+            The string containing HEX value to convert to integer. Only Hex value of exactly 4 char can be parsed
+            </param>
+            <returns>
+            Returns <paramref name="value"/> as integer if successful conversion.
+            If conversion fails null is returned
+            </returns>
+            <remarks>
+            This method will only return an integer if <paramref name="value"/> contains a HEX value
+            that is exactly four chars.
+            </remarks>
+            <example>
+            String str1 = "AB45";
+            Int32? result = DataHelper.HexCodePointToInt32Null(str1); //result is 43845
+            String str2 = "#";
+            Int32? result = DataHelper.HexCodePointToInt32Null(str2); //result is null
+            String str3 = "NaN";
+            Int32? result = DataHelper.HexCodePointToInt32Null(str3); //result is null
+            String str4 = "01A";
+            Int32? result = DataHelper.HexCodePointToInt32Null(str4); //result is null
+            String str5 = "0101A"; // to many chars must be exactly 4
+            Int32? result = DataHelper.HexCodePointToInt32Null(str5); //result is null
+            </example>
         </member>
         <member name="M:UCD.DataCommon.DataHelper.SplitHexString(System.String)">
             <summary>
@@ -262,6 +388,18 @@
             Drops EmojiSource table from database
             </summary>
         </member>
+        <member name="T:UCD.NamedSequence.NsItem">
+            <summary>
+            Class that represents Named Sequences of the UCD.
+            </summary>
+            <remarks>
+            UCD documentation states that there can be elements named-sequences and
+            provisional-named-sequences Children of UCD element. It appears there are no
+            provisional-named-sequences in ucd.all.flat.xml. This class will serve as both
+            cases. The <see cref="P:UCD.NamedSequence.NsItem.ParentElementName"/> will be used to store the element
+            name on the database.
+            </remarks>
+        </member>
         <member name="M:UCD.NamedSequence.NsItem.PopulateFromElement(System.Xml.Linq.XElement)">
             <summary>
             Populates the class with data from XElement
@@ -277,10 +415,38 @@
             </summary>
             <returns>Dictionary of String, Object representing the data of the class</returns>
         </member>
+        <member name="P:UCD.NamedSequence.NsItem.ID">
+            <summary>
+            The id of the entry. Primary key
+            </summary>
+        </member>
+        <member name="P:UCD.NamedSequence.NsItem.CodePoints">
+            <summary>
+            One or more code points of the Named Sequence
+            </summary>
+        </member>
+        <member name="P:UCD.NamedSequence.NsItem.Name">
+            <summary>
+            The name of the Named Sequence
+            </summary>
+        </member>
+        <member name="P:UCD.NamedSequence.NsItem.ParentElementName">
+            <summary>
+            The name of named-sequence element parent.
+            Expected to be named-sequences or provisional-named-sequences
+            </summary>
+        </member>
         <member name="T:UCD.NamedSequence.NsTable">
             <summary>
             Drops and/or Creates table for UCD entries NamedSequences
             </summary>
+            <remarks>
+            UCD documentation states that there can be elements named-sequences and
+            provisional-named-sequences Children of UCD element. It appears there are no
+            provisional-named-sequences in ucd.all.flat.xml. This class will serve as both
+            cases. The <see cref="P:UCD.NamedSequence.NsItem.ParentElementName"/> will be used to store the element
+            name on the database.
+            </remarks>
         </member>
         <member name="M:UCD.NamedSequence.NsTable.CreateTable">
             <summary>
@@ -322,6 +488,17 @@
         <member name="M:UCD.NormalizationCorrections.NcTable.DropTable">
             <summary>
             Drops normalizationCorrections table from database
+            </summary>
+        </member>
+        <member name="M:UCD.Planes.PlanesTable.CreateTable">
+            <summary>
+            Creates Blocks table in database with all the necessary columns.
+            Table is droped if it exist and then planes tables create containing planes data.
+            </summary>
+        </member>
+        <member name="M:UCD.Planes.PlanesTable.DropTable">
+            <summary>
+            Drops Blocks table from database
             </summary>
         </member>
         <member name="T:UCD.Repertoire.CharItem">

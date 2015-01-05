@@ -10,5 +10,6 @@ rem --pn - Normalization Corrections items will be processed and written into th
 rem --pv - Standardized Variants items will be processed and written into the database
 rem --pc - Cjk Radicals items will be processed and written into the database.
 rem --pe - Emoji Source items will be processed and written into the database.
+rem -cp -  Planes table will be created with planes data inserted into the database.
 
-UnicodeToSqLite.exe -d "d:\ucd.sqlite" -x "...yourpath\ucd.all.flat.xml" --pr --pb --ps --pn --pv --pc --pe
+UnicodeToSqLite.exe -d "d:\ucd.sqlite" -x "...yourpath\ucd.all.flat.xml" --pr --pb --ps --pn --pv --pc --pe --cp

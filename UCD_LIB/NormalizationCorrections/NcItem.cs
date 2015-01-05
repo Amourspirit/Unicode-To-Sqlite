@@ -33,7 +33,7 @@ namespace UCD.NormalizationCorrections
             this.CodePoint = DataHelper.HexStringToInt32(el.Attribute("cp").Value);
             this.CodePointOld = DataHelper.HexStringToInt32(el.Attribute("old").Value);
             this.CodePointNew = DataHelper.HexStringToInt32(el.Attribute("new").Value);
-            this.Version = (string)el.Attribute("version") ?? string.Empty;
+            this.Version = (string)el.Attribute("version");
         }
 
         /// <summary>

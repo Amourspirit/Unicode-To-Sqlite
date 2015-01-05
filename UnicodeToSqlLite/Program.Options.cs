@@ -60,7 +60,7 @@ namespace UnicodeToSqLite
             /// The maximum number of element to read from xml and write to database.
             /// Default value is 65535
             /// </summary>
-            [Option('m', MetaValue = "INT", HelpText = "Max Char Value. Range: from 0 to infinity. Default is 65535")]
+            //[Option('m', MetaValue = "INT", HelpText = "Max Char Value. Range: from 0 to infinity. Default is 65535")]
             public int MaxCharValue { get; set; }
             /// <summary>
             /// If true then Repertoire items will be processed and written into Database.
@@ -110,6 +110,13 @@ namespace UnicodeToSqLite
             /// </summary>
             [Option("pe", HelpText = "Emoji Source items will be processed and written into the database.")]
             public bool ProcessEmojiSource { get; set; }
+
+            /// <summary>
+            /// If true then Emoji Source items will be processed and written into the database.
+            /// Default is true.
+            /// </summary>
+            [Option("cp", HelpText = "Planes table will be created with planes data inserted into the database.")]
+            public bool CreatePlanes { get; set; }
 
             //
             // Marking a property of type IParserState with ParserStateAttribute allows you to

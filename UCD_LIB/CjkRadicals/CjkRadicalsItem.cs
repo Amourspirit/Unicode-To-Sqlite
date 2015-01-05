@@ -15,7 +15,7 @@ namespace UCD.CjkRadicals
         public Int64 ID { get; set; }
         public String Number { get; set; }
         public Int32 Radical { get; set; }
-        public Int32 Ideograph { get; set; }
+        public Int32? Ideograph { get; set; }
         #endregion
 
         #region Methods
@@ -31,7 +31,7 @@ namespace UCD.CjkRadicals
             this.ElementName = el.Name.LocalName;
             this.Number = el.Attribute("number").Value;
             this.Radical = DataHelper.HexStringToInt32(el.Attribute("radical").Value);
-            this.Ideograph = DataHelper.HexStringToInt32(el.Attribute("ideograph").Value);
+            this.Ideograph = DataHelper.HexCodePointToInt32Null((String)el.Attribute("ideograph"));
         }
 
         /// <summary>

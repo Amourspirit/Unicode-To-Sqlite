@@ -33,7 +33,7 @@ namespace UCD.EmojiSource
             this.Unicode = el.Attribute("unicode").Value;
             this.Docomo = DataHelper.HexStringToInt32Null(el.Attribute("docomo").Value);
             this.Kddi = DataHelper.HexStringToInt32Null(el.Attribute("kddi").Value);
-            this.Softbank = DataHelper.HexStringToInt32Null(el.Attribute("softbank").Value);
+            this.Softbank = DataHelper.HexStringToInt32Null((String)el.Attribute("softbank"));
         }
 
         /// <summary>

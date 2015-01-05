@@ -16,8 +16,6 @@ namespace UCD.Repertoire
         {
             this.NameAliasList = new List<NameAlias>();
             this.CodePoint = -1;
-            this.FirstCodePoint = -1;
-            this.LastCodePoint = -1;
         }
         #region Properties
         public List<NameAlias> NameAliasList { get; set; }
@@ -26,15 +24,15 @@ namespace UCD.Repertoire
         public Int32 CodePoint { get; set; }
         public Int32? FirstCodePoint { get; set; }
         public Int32? LastCodePoint { get; set; }
-        public Decimal Age { get; set; }
+        public Decimal? Age { get; set; }
         public String Name { get; set; }
         public String NameOne { get; set; }
         public String Block { get; set; }
         public String GeneralCategory { get; set; }
-        public Int32 Combining { get; set; }
+        public Int32? Combining { get; set; }
         public String Bidirectionality { get; set; }
         public Boolean BidiM { get; set; }
-        public String Bmg { get; set; }
+        public Int32? Bmg { get; set; }
         public Boolean BidiControl { get; set; }
         public String BidiParedBracketType { get; set; }
         public String BidiParedBracket { get; set; }
@@ -42,9 +40,9 @@ namespace UCD.Repertoire
         public String DecompDm { get; set; }
         public Boolean CompositionExclusion { get; set; }
         public Boolean FullCompositionExclusion { get; set; }
-        public Int32 NfcQuickCheck { get; set; }
+        public Int32? NfcQuickCheck { get; set; }
         public Boolean NfdQuickCheck { get; set; }
-        public Int32 NfkcQuickCheck { get; set; }
+        public Int32? NfkcQuickCheck { get; set; }
         public Boolean NfkdQuickCheck { get; set; }
         public Boolean ExpandsOnNFC { get; set; }
         public Boolean ExpandsOnNFD { get; set; }
@@ -62,13 +60,13 @@ namespace UCD.Repertoire
         public Boolean Lower { get; set; }
         public Boolean OtherUpper { get; set; }
         public Boolean OtherLower { get; set; }
-        public String SimplCaseMapUpperCase { get; set; }
-        public String SimplCaseMapLowerCase { get; set; }
-        public String SimplCaseMapTitleCase { get; set; }
+        public Int32? SimplCaseMapUpperCase { get; set; }
+        public Int32? SimplCaseMapLowerCase { get; set; }
+        public Int32? SimplCaseMapTitleCase { get; set; }
         public String ComplexCaseMapUpperCase { get; set; }
         public String ComplexCaseMapLowerCase { get; set; }
         public String ComplexCaseMapTitleCase { get; set; }
-        public String SimpleCaseFolding { get; set; }
+        public Int32? SimpleCaseFolding { get; set; }
         public String CaseFolding { get; set; }
         public Boolean CaseIgnorable { get; set; }
         public Boolean Cased { get; set; }
@@ -127,8 +125,103 @@ namespace UCD.Repertoire
         public Boolean Deprecated { get; set; }
         public Boolean VariationSelector { get; set; }
         public Boolean NoncharacterCodePoint { get; set; }
-
-
+        public Int32? kAccountingNumeric { get; set; }
+        public String kAlternateHanYu { get; set; }
+        public String kAlternateJEF { get; set; }
+        public String kAlternateKangXi { get; set; }
+        public String kAlternateMorohashi { get; set; }
+        public Int32? kBigFive { get; set; }
+        public Int32? kCCCII { get; set; }
+        public String kCNS1986 { get; set; }
+        public String kCNS1992 { get; set; }
+        public String kCangjie { get; set; }
+        public String kCantonese { get; set; }
+        public String kCheungBauer { get; set; }
+        public String kCheungBauerIndex { get; set; }
+        public String kCihaiT { get; set; }
+        public String kCompatibilityVariant { get; set; }
+        public String kCowles { get; set; }
+        public String kDaeJaweon { get; set; }
+        public String kDefinition { get; set; }
+        public Int32? kEACC { get; set; }
+        public String kFenn { get; set; }
+        public Decimal? kFennIndex { get; set; }
+        public Decimal? kFourCornerCode { get; set; }
+        public Int32? kFrequency { get; set; }
+        public Int32? kGB0 { get; set; }
+        public Int32? kGB1 { get; set; }
+        public Int32? kGB3 { get; set; }
+        public Int32? kGB5 { get; set; }
+        public Int32? kGB7 { get; set; }
+        public Int32? kGB8 { get; set; }
+        public Int32? kGradeLevel { get; set; }
+        public String kGSR { get; set; }
+        public String kHangul { get; set; }
+        public Decimal? kHanYu { get; set; }
+        public String kHanyuPinlu { get; set; }
+        public String kHanyuPinyin { get; set; }
+        public String kHDZRadBreak { get; set; }
+        public Int32? kHKGlyph { get; set; }
+        public Int32? kHKSCS { get; set; }
+        public String kIBMJapan { get; set; }
+        public String kIICore { get; set; }
+        public String kIRGDaeJaweon { get; set; }
+        public String kIRGDaiKanwaZiten { get; set; }
+        public String kIRGHanyuDaZidian { get; set; }
+        public String kIRGKangXi { get; set; }
+        public String kirgGSource { get; set; }
+        public String KirgHSource { get; set; }
+        public String KirgJSource { get; set; }
+        public String KirgKPSource { get; set; }
+        public String KirgKSource { get; set; }
+        public String KirgMSource { get; set; }
+        public String KirgTSource { get; set; }
+        public String KirgUSource { get; set; }
+        public String KirgVSource { get; set; }
+        public String kJHJ { get; set; }
+        public String kJIS0213 { get; set; }
+        public String kJapaneseKun { get; set; }
+        public String kJapaneseOn { get; set; }
+        public Int32? kJis0 { get; set; }
+        public Int32? kJis1 { get; set; }
+        public Int32? kKPS0 { get; set; }
+        public Int32? kKPS1 { get; set; }
+        public Int32? kKSC0 { get; set; }
+        public Int32? kKSC1 { get; set; }
+        public String kKangXi { get; set; }
+        public String kKarlgren { get; set; }
+        public String kKorean { get; set; }
+        public String kLau { get; set; }
+        public Int32? kMainlandTelegraph { get; set; }
+        public String kMandarin { get; set; }
+        public String kMatthews { get; set; }
+        public String kMeyerWempe { get; set; }
+        public String kMorohashi { get; set; }
+        public String kNelson { get; set; }
+        public String kOtherNumeric { get; set; }
+        public String kPhonetic { get; set; }
+        public Int32? kPrimaryNumeric { get; set; }
+        public Int32? kPseudoGB1 { get; set; }
+        public String kRSAdobeJapan1_6 { get; set; }
+        public Decimal? kRSJapanese { get; set; }
+        public Decimal? kRSKanWa { get; set; }
+        public Decimal? kRSKangXi { get; set; }
+        public Decimal? kRSKorean { get; set; }
+        public String kRSMerged { get; set; }
+        public String kRSUnicode { get; set; }
+        public String kSBGY { get; set; }
+        public String kSemanticVariant { get; set; }
+        public String kSimplifiedVariant { get; set; }
+        public String kSpecializedSemanticVariant { get; set; }
+        public Int32? kTaiwanTelegraph { get; set; }
+        public String kTang { get; set; }
+        public String kTotalStrokes { get; set; }
+        public String kTraditionalVariant { get; set; }
+        public String kVietnamese { get; set; }
+        public String kXHC1983 { get; set; }
+        public String kWubi { get; set; }
+        public String kXerox { get; set; }
+        public String kZVariant { get; set; }
 
 #endregion
 
@@ -144,123 +237,211 @@ namespace UCD.Repertoire
         override public void  PopulateFromElement(XElement el)
         {
            
-            // Regex Replacements
-            // Integer Find:        i:([0-9A-Za-z_]*)
-            // Integer Replace:     $1 = (int?)c.Attribute("$1") ?? 0;
-            // String Find:         s:([0-9A-Za-z_]*)
-            // String Replace:      $1 = (string)c.Attribute("$1") ?? string.Empty;
-            // Decimal Find:        d:([0-9A-Za-z_]*)
-            // Decimal Replace:     $1 = DataHelper.StringToDecimal((string)c.Attribute("$1"));
-            // Boolean Find:        b:([0-9A-Za-z_]*)
-            // Boolean Replace:     $1 = DataHelper.StringToBool((string)c.Attribute("$1"));
             
+            #region Populate from Element
             ElementName = el.Name.LocalName;
-            //this.CodePoint = (int?)el.Attribute("cp") ?? 0;
-            //this.FirstCodePoint = (int?)el.Attribute("first-cp") ?? 0;
-            //this.LastCodePoint = (int?)el.Attribute("last-cp") ?? 0;
-            this.Age = DataHelper.StringToDecimal((string)el.Attribute("age"));
-            this.Name = (string)el.Attribute("na") ?? string.Empty;
-            this.NameOne = (string)el.Attribute("na1") ?? string.Empty;
-            this.Block = (string)el.Attribute("blk") ?? string.Empty;
-            this.GeneralCategory = (string)el.Attribute("gc") ?? string.Empty;
-            this.Combining = (int?)el.Attribute("ccc") ?? 0;
-            this.Bidirectionality = (string)el.Attribute("bc") ?? string.Empty;
-            this.BidiM = DataHelper.StringToBool((string)el.Attribute("Bidi_M"));
-            this.Bmg = (string)el.Attribute("bmg") ?? string.Empty;
-            this.BidiControl = DataHelper.StringToBool((string)el.Attribute("Bidi_C"));
-            this.BidiParedBracketType = (string)el.Attribute("bpt") ?? string.Empty;
-            this.BidiParedBracket = (string)el.Attribute("bpb") ?? string.Empty;
-            this.DecompDt = (string)el.Attribute("dt") ?? string.Empty;
-            this.DecompDm = (string)el.Attribute("dm") ?? string.Empty;
-            this.CompositionExclusion = DataHelper.StringToBool((string)el.Attribute("CE"));
-            this.FullCompositionExclusion = DataHelper.StringToBool((string)el.Attribute("Comp_Ex"));
-            this.NfcQuickCheck = DataHelper.YesNoMabeyToInt32((string)el.Attribute("NFC_QC"));
-            this.NfdQuickCheck = DataHelper.StringToBool((string)el.Attribute("NFD_QC"));
-            this.NfkcQuickCheck = DataHelper.YesNoMabeyToInt32((string)el.Attribute("NFKC_QC"));
-            this.NfkdQuickCheck = DataHelper.StringToBool((string)el.Attribute("NFKD_QC"));
-            this.ExpandsOnNFC = DataHelper.StringToBool((string)el.Attribute("XO_NFC"));
-            this.ExpandsOnNFD = DataHelper.StringToBool((string)el.Attribute("XO_NFD"));
-            this.ExpandsOnNFKC = DataHelper.StringToBool((string)el.Attribute("XO_NFKC"));
-            this.ExpandsOnNKFD = DataHelper.StringToBool((string)el.Attribute("XO_NFKD"));
-            this.FcNfkcClosure = (string)el.Attribute("FC_NFKC") ?? string.Empty;
-            this.NumericType = (string)el.Attribute("nt") ?? string.Empty;
-            this.NumericValue = (string)el.Attribute("nv") ?? string.Empty;
-            this.JoiningClass = (string)el.Attribute("jt") ?? string.Empty;
-            this.JoiningGroup = (string)el.Attribute("jg") ?? string.Empty;
-            this.JoiningControl = DataHelper.StringToBool((string)el.Attribute("Join_C"));
-            this.LineBreak = (string)el.Attribute("lb") ?? string.Empty;
-            this.EastAsianWidth = (string)el.Attribute("ea") ?? string.Empty;
-            this.Upper = DataHelper.StringToBool((string)el.Attribute("Upper"));
-            this.Lower = DataHelper.StringToBool((string)el.Attribute("Lower"));
-            this.OtherUpper = DataHelper.StringToBool((string)el.Attribute("OUpper"));
-            this.OtherLower = DataHelper.StringToBool((string)el.Attribute("OLower"));
-            this.SimplCaseMapUpperCase = (string)el.Attribute("suc") ?? string.Empty;
-            this.SimplCaseMapLowerCase = (string)el.Attribute("slc") ?? string.Empty;
-            this.SimplCaseMapTitleCase = (string)el.Attribute("stc") ?? string.Empty;
-            this.ComplexCaseMapUpperCase = (string)el.Attribute("uc") ?? string.Empty;
-            this.ComplexCaseMapLowerCase = (string)el.Attribute("lc") ?? string.Empty;
-            this.ComplexCaseMapTitleCase = (string)el.Attribute("tc") ?? string.Empty;
-            this.SimpleCaseFolding = (string)el.Attribute("scf") ?? string.Empty;
-            this.CaseFolding = (string)el.Attribute("cf") ?? string.Empty;
-            this.CaseIgnorable = DataHelper.StringToBool((string)el.Attribute("CI"));
-            this.Cased = DataHelper.StringToBool((string)el.Attribute("Cased"));
-            this.ChangesWhenCasefolded = DataHelper.StringToBool((string)el.Attribute("CWCF"));
-            this.ChangesWhenCasemapped = DataHelper.StringToBool((string)el.Attribute("CWCM"));
-            this.ChangesWhenLowercased = DataHelper.StringToBool((string)el.Attribute("CWL"));
-            this.ChangesWhenNfkcCasefolded = DataHelper.StringToBool((string)el.Attribute("CWKCF"));
-            this.ChangesWhenTitlecased = DataHelper.StringToBool((string)el.Attribute("CWT"));
-            this.ChangesWhenUppercased = DataHelper.StringToBool((string)el.Attribute("CWU"));
-            this.NfkcCasefold = (string)el.Attribute("NFKC_CF") ?? string.Empty;
-            this.Script = (string)el.Attribute("sc") ?? string.Empty;
-            this.ScriptExtension = (string)el.Attribute("scx") ?? string.Empty;
-            this.Iso10646comment = (string)el.Attribute("isc") ?? string.Empty;
-            this.HangulSyllableType = (string)el.Attribute("hst") ?? string.Empty;
-            this.JamoShortName = (string)el.Attribute("JSN") ?? string.Empty;
-            this.IndicSyllabicCategory = (string)el.Attribute("InSC") ?? string.Empty;
-            this.IndicMatraCategory = (string)el.Attribute("InMC") ?? string.Empty;
-            this.IdStart = DataHelper.StringToBool((string)el.Attribute("IDS"));
-            this.OtherIdStart = DataHelper.StringToBool((string)el.Attribute("OIDS"));
-            this.XidStart = DataHelper.StringToBool((string)el.Attribute("XIDS"));
-            this.IdContinue = DataHelper.StringToBool((string)el.Attribute("IDC"));
-            this.OtherIdContinue = DataHelper.StringToBool((string)el.Attribute("OIDC"));
-            this.XidContinue = DataHelper.StringToBool((string)el.Attribute("XIDC"));
-            this.PatternSyntax = DataHelper.StringToBool((string)el.Attribute("Pat_Syn"));
-            this.PatternWhiteSpace = DataHelper.StringToBool((string)el.Attribute("Pat_WS"));
-            this.Dash = DataHelper.StringToBool((string)el.Attribute("Dash"));
-            this.Hyphen = DataHelper.StringToBool((string)el.Attribute("Hyphen"));
-            this.QuotationMark = DataHelper.StringToBool((string)el.Attribute("QMark"));
-            this.TerminalPunctuation = DataHelper.StringToBool((string)el.Attribute("Term"));
-            this.STerm = DataHelper.StringToBool((string)el.Attribute("STerm"));
-            this.Diacritic = DataHelper.StringToBool((string)el.Attribute("Dia"));
-            this.Extender = DataHelper.StringToBool((string)el.Attribute("Ext"));
-            this.SoftDotted = DataHelper.StringToBool((string)el.Attribute("SD"));
-            this.Alphabetic = DataHelper.StringToBool((string)el.Attribute("Alpha"));
-            this.OtherAlphabetic = DataHelper.StringToBool((string)el.Attribute("OAlpha"));
-            this.Math = DataHelper.StringToBool((string)el.Attribute("Math"));
-            this.OtherMath = DataHelper.StringToBool((string)el.Attribute("OMath"));
-            this.HexDigit = DataHelper.StringToBool((string)el.Attribute("Hex"));
-            this.ASCIIHexDigit = DataHelper.StringToBool((string)el.Attribute("AHex"));
-            this.DefaultIgnorableCodePoint = DataHelper.StringToBool((string)el.Attribute("DI"));
-            this.OtherDefaultIgnorableCodePoint = DataHelper.StringToBool((string)el.Attribute("ODI"));
-            this.LogicalOrderException = DataHelper.StringToBool((string)el.Attribute("LOE"));
-            this.WhiteSpace = DataHelper.StringToBool((string)el.Attribute("WSpace"));
-            this.GraphemeBase = DataHelper.StringToBool((string)el.Attribute("Gr_Base"));
-            this.GraphemeExtend = DataHelper.StringToBool((string)el.Attribute("Gr_Ext"));
-            this.OtherGraphemeExtend = DataHelper.StringToBool((string)el.Attribute("OGr_Ext"));
-            this.GraphemeLink = DataHelper.StringToBool((string)el.Attribute("Gr_Link"));
-            this.GraphemeClusterBreak = (string)el.Attribute("GCB") ?? string.Empty;
-            this.WordBreak = (string)el.Attribute("WB") ?? string.Empty;
-            this.SentenceBreak = (string)el.Attribute("SB") ?? string.Empty;
-            this.Ideographic = DataHelper.StringToBool((string)el.Attribute("Ideo"));
-            this.UnifiedIdeograph = DataHelper.StringToBool((string)el.Attribute("UIdeo"));
-            this.IDSBinaryOperator = DataHelper.StringToBool((string)el.Attribute("IDSB"));
-            this.IDSTrinaryOperator = DataHelper.StringToBool((string)el.Attribute("IDST"));
-            this.Radical = DataHelper.StringToBool((string)el.Attribute("Radical"));
-            this.Deprecated = DataHelper.StringToBool((string)el.Attribute("Dep"));
-            this.VariationSelector = DataHelper.StringToBool((string)el.Attribute("VS"));
-            this.NoncharacterCodePoint = DataHelper.StringToBool((string)el.Attribute("NChar"));
-
-
+            //this.CodePoint = DataHelper.HexStringToInt32((String)el.Attribute("cp"), -1);
+            //this.FirstCodePoint = DataHelper.HexCodePointToInt32Null((String)el.Attribute("first-cp"));
+            //this.LastCodePoint = DataHelper.HexCodePointToInt32Null((String)el.Attribute("last-cp"));
+            this.Age = DataHelper.StringtoDecimalNull((String)el.Attribute("age"));
+            this.Name = DataHelper.StringToStringNull((String)el.Attribute("na"));
+            this.NameOne = DataHelper.StringToStringNull((String)el.Attribute("na1"));
+            this.Block = DataHelper.StringToStringNull((String)el.Attribute("blk"));
+            this.GeneralCategory = DataHelper.StringToStringNull((String)el.Attribute("gc"));
+            this.Combining = DataHelper.StringToInt32Null((String)el.Attribute("ccc"));
+            this.Bidirectionality = DataHelper.StringToStringNull((String)el.Attribute("bc"));
+            this.BidiM = DataHelper.StringToBool((String)el.Attribute("Bidi_M"));
+            this.Bmg = DataHelper.HexCodePointToInt32Null((String)el.Attribute("bmg"));
+            this.BidiControl = DataHelper.StringToBool((String)el.Attribute("Bidi_C"));
+            this.BidiParedBracketType = DataHelper.StringToStringNull((String)el.Attribute("bpt"));
+            this.BidiParedBracket = DataHelper.StringToStringNull((String)el.Attribute("bpb"));
+            this.DecompDt = DataHelper.StringToStringNull((String)el.Attribute("dt"));
+            this.DecompDm = DataHelper.StringToStringNull((String)el.Attribute("dm"));
+            this.CompositionExclusion = DataHelper.StringToBool((String)el.Attribute("CE"));
+            this.FullCompositionExclusion = DataHelper.StringToBool((String)el.Attribute("Comp_Ex"));
+            this.NfcQuickCheck = DataHelper.YesNoMabeyToInt32((String)el.Attribute("NFC_QC"));
+            this.NfdQuickCheck = DataHelper.StringToBool((String)el.Attribute("NFD_QC"));
+            this.NfkcQuickCheck = DataHelper.YesNoMabeyToInt32((String)el.Attribute("NFKC_QC"));
+            this.NfkdQuickCheck = DataHelper.StringToBool((String)el.Attribute("NFKD_QC"));
+            this.ExpandsOnNFC = DataHelper.StringToBool((String)el.Attribute("XO_NFC"));
+            this.ExpandsOnNFD = DataHelper.StringToBool((String)el.Attribute("XO_NFD"));
+            this.ExpandsOnNFKC = DataHelper.StringToBool((String)el.Attribute("XO_NFKC"));
+            this.ExpandsOnNKFD = DataHelper.StringToBool((String)el.Attribute("XO_NFKD"));
+            this.FcNfkcClosure = DataHelper.StringToStringNull((String)el.Attribute("FC_NFKC"));
+            this.NumericType = DataHelper.StringToStringNull((String)el.Attribute("nt"));
+            this.NumericValue = el.Attribute("nv").Value;
+            this.JoiningClass = el.Attribute("jt").Value;
+            this.JoiningGroup = el.Attribute("jg").Value;
+            this.JoiningControl = DataHelper.StringToBool((String)el.Attribute("Join_C"));
+            this.LineBreak = el.Attribute("lb").Value;
+            this.EastAsianWidth = el.Attribute("ea").Value;
+            this.Upper = DataHelper.StringToBool((String)el.Attribute("Upper"));
+            this.Lower = DataHelper.StringToBool((String)el.Attribute("Lower"));
+            this.OtherUpper = DataHelper.StringToBool((String)el.Attribute("OUpper"));
+            this.OtherLower = DataHelper.StringToBool((String)el.Attribute("OLower"));
+            this.SimplCaseMapUpperCase = DataHelper.HexCodePointToInt32Null((String)el.Attribute("suc"));
+            this.SimplCaseMapLowerCase = DataHelper.HexCodePointToInt32Null((String)el.Attribute("slc"));
+            this.SimplCaseMapTitleCase = DataHelper.HexCodePointToInt32Null((String)el.Attribute("stc"));
+            this.ComplexCaseMapUpperCase = DataHelper.StringToStringNull((String)el.Attribute("uc"));
+            this.ComplexCaseMapLowerCase = DataHelper.StringToStringNull((String)el.Attribute("lc"));
+            this.ComplexCaseMapTitleCase = DataHelper.StringToStringNull((String)el.Attribute("tc"));
+            this.SimpleCaseFolding = DataHelper.HexCodePointToInt32Null((String)el.Attribute("scf"));
+            this.CaseFolding = DataHelper.StringToStringNull((String)el.Attribute("cf"));
+            this.CaseIgnorable = DataHelper.StringToBool((String)el.Attribute("CI"));
+            this.Cased = DataHelper.StringToBool((String)el.Attribute("Cased"));
+            this.ChangesWhenCasefolded = DataHelper.StringToBool((String)el.Attribute("CWCF"));
+            this.ChangesWhenCasemapped = DataHelper.StringToBool((String)el.Attribute("CWCM"));
+            this.ChangesWhenLowercased = DataHelper.StringToBool((String)el.Attribute("CWL"));
+            this.ChangesWhenNfkcCasefolded = DataHelper.StringToBool((String)el.Attribute("CWKCF"));
+            this.ChangesWhenTitlecased = DataHelper.StringToBool((String)el.Attribute("CWT"));
+            this.ChangesWhenUppercased = DataHelper.StringToBool((String)el.Attribute("CWU"));
+            this.NfkcCasefold = DataHelper.StringToStringNull((String)el.Attribute("NFKC_CF"));
+            this.Script = el.Attribute("sc").Value;
+            this.ScriptExtension = el.Attribute("scx").Value;
+            this.Iso10646comment = DataHelper.StringToStringNull((String)el.Attribute("isc"));
+            this.HangulSyllableType = el.Attribute("hst").Value;
+            this.JamoShortName = DataHelper.StringToStringNull((String)el.Attribute("JSN"));
+            this.IndicSyllabicCategory = el.Attribute("InSC").Value;
+            this.IndicMatraCategory = el.Attribute("InMC").Value;
+            this.IdStart = DataHelper.StringToBool((String)el.Attribute("IDS"));
+            this.OtherIdStart = DataHelper.StringToBool((String)el.Attribute("OIDS"));
+            this.XidStart = DataHelper.StringToBool((String)el.Attribute("XIDS"));
+            this.IdContinue = DataHelper.StringToBool((String)el.Attribute("IDC"));
+            this.OtherIdContinue = DataHelper.StringToBool((String)el.Attribute("OIDC"));
+            this.XidContinue = DataHelper.StringToBool((String)el.Attribute("XIDC"));
+            this.PatternSyntax = DataHelper.StringToBool((String)el.Attribute("Pat_Syn"));
+            this.PatternWhiteSpace = DataHelper.StringToBool((String)el.Attribute("Pat_WS"));
+            this.Dash = DataHelper.StringToBool((String)el.Attribute("Dash"));
+            this.Hyphen = DataHelper.StringToBool((String)el.Attribute("Hyphen"));
+            this.QuotationMark = DataHelper.StringToBool((String)el.Attribute("QMark"));
+            this.TerminalPunctuation = DataHelper.StringToBool((String)el.Attribute("Term"));
+            this.STerm = DataHelper.StringToBool((String)el.Attribute("STerm"));
+            this.Diacritic = DataHelper.StringToBool((String)el.Attribute("Dia"));
+            this.Extender = DataHelper.StringToBool((String)el.Attribute("Ext"));
+            this.SoftDotted = DataHelper.StringToBool((String)el.Attribute("SD"));
+            this.Alphabetic = DataHelper.StringToBool((String)el.Attribute("Alpha"));
+            this.OtherAlphabetic = DataHelper.StringToBool((String)el.Attribute("OAlpha"));
+            this.Math = DataHelper.StringToBool((String)el.Attribute("Math"));
+            this.OtherMath = DataHelper.StringToBool((String)el.Attribute("OMath"));
+            this.HexDigit = DataHelper.StringToBool((String)el.Attribute("Hex"));
+            this.ASCIIHexDigit = DataHelper.StringToBool((String)el.Attribute("AHex"));
+            this.DefaultIgnorableCodePoint = DataHelper.StringToBool((String)el.Attribute("DI"));
+            this.OtherDefaultIgnorableCodePoint = DataHelper.StringToBool((String)el.Attribute("ODI"));
+            this.LogicalOrderException = DataHelper.StringToBool((String)el.Attribute("LOE"));
+            this.WhiteSpace = DataHelper.StringToBool((String)el.Attribute("WSpace"));
+            this.GraphemeBase = DataHelper.StringToBool((String)el.Attribute("Gr_Base"));
+            this.GraphemeExtend = DataHelper.StringToBool((String)el.Attribute("Gr_Ext"));
+            this.OtherGraphemeExtend = DataHelper.StringToBool((String)el.Attribute("OGr_Ext"));
+            this.GraphemeLink = DataHelper.StringToBool((String)el.Attribute("Gr_Link"));
+            this.GraphemeClusterBreak = el.Attribute("GCB").Value;
+            this.WordBreak = el.Attribute("WB").Value;
+            this.SentenceBreak = el.Attribute("SB").Value;
+            this.Ideographic = DataHelper.StringToBool((String)el.Attribute("Ideo"));
+            this.UnifiedIdeograph = DataHelper.StringToBool((String)el.Attribute("UIdeo"));
+            this.IDSBinaryOperator = DataHelper.StringToBool((String)el.Attribute("IDSB"));
+            this.IDSTrinaryOperator = DataHelper.StringToBool((String)el.Attribute("IDST"));
+            this.Radical = DataHelper.StringToBool((String)el.Attribute("Radical"));
+            this.Deprecated = DataHelper.StringToBool((String)el.Attribute("Dep"));
+            this.VariationSelector = DataHelper.StringToBool((String)el.Attribute("VS"));
+            this.NoncharacterCodePoint = DataHelper.StringToBool((String)el.Attribute("NChar"));
+            this.kAccountingNumeric = DataHelper.StringToInt32Null((String)el.Attribute("kAccountingNumeric"));
+            this.kAlternateHanYu = DataHelper.StringToStringNull((String)el.Attribute("kAlternateHanYu"));
+            this.kAlternateJEF = DataHelper.StringToStringNull((String)el.Attribute("kAlternateJEF"));
+            this.kAlternateKangXi = DataHelper.StringToStringNull((String)el.Attribute("kAlternateKangXi"));
+            this.kAlternateMorohashi = DataHelper.StringToStringNull((String)el.Attribute("kAlternateMorohashi"));
+            this.kBigFive = DataHelper.HexCodePointToInt32Null((String)el.Attribute("kBigFive"));
+            this.kCCCII = DataHelper.HexStringToInt32Null((String)el.Attribute("kCCCII"), 6);
+            this.kCNS1986 = DataHelper.StringToStringNull((String)el.Attribute("kCNS1986"));
+            this.kCNS1992 = DataHelper.StringToStringNull((String)el.Attribute("kCNS1992"));
+            this.kCangjie = DataHelper.StringToStringNull((String)el.Attribute("kCangjie"));
+            this.kCantonese = DataHelper.StringToStringNull((String)el.Attribute("kCantonese"));
+            this.kCheungBauer = DataHelper.StringToStringNull((String)el.Attribute("kCheungBauer"));
+            this.kCheungBauerIndex = DataHelper.StringToStringNull((String)el.Attribute("kCheungBauerIndex"));
+            this.kCihaiT = DataHelper.StringToStringNull((String)el.Attribute("kCihaiT"));
+            this.kCompatibilityVariant = DataHelper.StringToStringNull((String)el.Attribute("kCompatibilityVariant"));
+            this.kCowles = DataHelper.StringToStringNull((String)el.Attribute("kCowles"));
+            this.kDaeJaweon = DataHelper.StringToStringNull((String)el.Attribute("kDaeJaweon"));
+            this.kDefinition = DataHelper.StringToStringNull((String)el.Attribute("kDefinition"));
+            this.kEACC = DataHelper.HexStringToInt32Null((String)el.Attribute("kEACC"), 6);
+            this.kFenn = DataHelper.StringToStringNull((String)el.Attribute("kFenn"));
+            this.kFennIndex = DataHelper.StringtoDecimalNull((String)el.Attribute("kFennIndex"));
+            this.kFourCornerCode = DataHelper.StringtoDecimalNull((String)el.Attribute("kFourCornerCode"));
+            this.kFrequency = DataHelper.StringToInt32Null((String)el.Attribute("kFrequency"));
+            this.kGB0 = DataHelper.HexCodePointToInt32Null((String)el.Attribute("kGB0"));
+            this.kGB1 = DataHelper.HexCodePointToInt32Null((String)el.Attribute("kGB1"));
+            this.kGB3 = DataHelper.HexCodePointToInt32Null((String)el.Attribute("kGB3"));
+            this.kGB5 = DataHelper.HexCodePointToInt32Null((String)el.Attribute("kGB5"));
+            this.kGB7 = DataHelper.HexCodePointToInt32Null((String)el.Attribute("kGB7"));
+            this.kGB8 = DataHelper.HexCodePointToInt32Null((String)el.Attribute("kGB8"));
+            this.kGradeLevel = DataHelper.StringToInt32Null((String)el.Attribute("kGradeLevel"));
+            this.kGSR = DataHelper.StringToStringNull((String)el.Attribute("kGSR"));
+            this.kHangul = DataHelper.StringToStringNull((String)el.Attribute("kHangul"));
+            this.kHanYu = DataHelper.StringtoDecimalNull((String)el.Attribute("kHanYu"));
+            this.kHanyuPinlu = DataHelper.StringToStringNull((String)el.Attribute("kHanyuPinlu"));
+            this.kHanyuPinyin = DataHelper.StringToStringNull((String)el.Attribute("kHanyuPinyin"));
+            this.kHDZRadBreak = DataHelper.StringToStringNull((String)el.Attribute("kHDZRadBreak"));
+            this.kHKGlyph = DataHelper.StringToInt32Null((String)el.Attribute("kHKGlyph"));
+            this.kHKSCS = DataHelper.HexCodePointToInt32Null((String)el.Attribute("kHKSCS"));
+            this.kIBMJapan = DataHelper.StringToStringNull((String)el.Attribute("kIBMJapan"));
+            this.kIICore = DataHelper.StringToStringNull((String)el.Attribute("kIICore"));
+            this.kIRGDaeJaweon = DataHelper.StringToStringNull((String)el.Attribute("kIRGDaeJaweon"));
+            this.kIRGDaiKanwaZiten = DataHelper.StringToStringNull((String)el.Attribute("kIRGDaiKanwaZiten"));
+            this.kIRGHanyuDaZidian = DataHelper.StringToStringNull((String)el.Attribute("kIRGHanyuDaZidian"));
+            this.kIRGKangXi = DataHelper.StringToStringNull((String)el.Attribute("kIRGKangXi"));
+            this.kirgGSource = DataHelper.StringToStringNull((String)el.Attribute("kIRG_GSource"));
+            this.KirgHSource = DataHelper.StringToStringNull((String)el.Attribute("kIRG_HSource"));
+            this.KirgJSource = DataHelper.StringToStringNull((String)el.Attribute("kIRG_JSource"));
+            this.KirgKPSource = DataHelper.StringToStringNull((String)el.Attribute("kIRG_KPSource"));
+            this.KirgKSource = DataHelper.StringToStringNull((String)el.Attribute("kIRG_KSource"));
+            this.KirgMSource = DataHelper.StringToStringNull((String)el.Attribute("kIRG_MSource"));
+            this.KirgTSource = DataHelper.StringToStringNull((String)el.Attribute("kIRG_TSource"));
+            this.KirgUSource = DataHelper.StringToStringNull((String)el.Attribute("kIRG_USource"));
+            this.KirgVSource = DataHelper.StringToStringNull((String)el.Attribute("kIRG_VSource"));
+            this.kJHJ = DataHelper.StringToStringNull((String)el.Attribute("kJHJ"));
+            this.kJIS0213 = DataHelper.StringToStringNull((String)el.Attribute("kJIS0213"));
+            this.kJapaneseKun = DataHelper.StringToStringNull((String)el.Attribute("kJapaneseKun"));
+            this.kJapaneseOn = DataHelper.StringToStringNull((String)el.Attribute("kJapaneseOn"));
+            this.kJis0 = DataHelper.StringToInt32Null((String)el.Attribute("kJis0"));
+            this.kJis1 = DataHelper.StringToInt32Null((String)el.Attribute("kJis1"));
+            this.kKPS0 = DataHelper.HexCodePointToInt32Null((String)el.Attribute("kKPS0"));
+            this.kKPS1 = DataHelper.HexCodePointToInt32Null((String)el.Attribute("kKPS1"));
+            this.kKSC0 = DataHelper.StringToInt32Null((String)el.Attribute("kKSC0"));
+            this.kKSC1 = DataHelper.StringToInt32Null((String)el.Attribute("kKSC1"));
+            this.kKangXi = DataHelper.StringToStringNull((String)el.Attribute("kKangXi"));
+            this.kKarlgren = DataHelper.StringToStringNull((String)el.Attribute("kKarlgren"));
+            this.kKorean = DataHelper.StringToStringNull((String)el.Attribute("kKorean"));
+            this.kLau = DataHelper.StringToStringNull((String)el.Attribute("kLau"));
+            this.kMainlandTelegraph = DataHelper.StringToInt32Null((String)el.Attribute("kMainlandTelegraph"));
+            this.kMandarin = DataHelper.StringToStringNull((String)el.Attribute("kMandarin"));
+            this.kMatthews = DataHelper.StringToStringNull((String)el.Attribute("kMatthews"));
+            this.kMeyerWempe = DataHelper.StringToStringNull((String)el.Attribute("kMeyerWempe"));
+            this.kMorohashi = DataHelper.StringToStringNull((String)el.Attribute("kMorohashi"));
+            this.kNelson = DataHelper.StringToStringNull((String)el.Attribute("kNelson"));
+            this.kOtherNumeric = DataHelper.StringToStringNull((String)el.Attribute("kOtherNumeric"));
+            this.kPhonetic = DataHelper.StringToStringNull((String)el.Attribute("kPhonetic"));
+            this.kPrimaryNumeric = DataHelper.StringToInt32Null((String)el.Attribute("kPrimaryNumeric"));
+            this.kPseudoGB1 = DataHelper.StringToInt32Null((String)el.Attribute("kPseudoGB1"));
+            this.kRSAdobeJapan1_6 = DataHelper.StringToStringNull((String)el.Attribute("kRSAdobe_Japan1_6"));
+            this.kRSJapanese = DataHelper.StringtoDecimalNull((String)el.Attribute("kRSJapanese"));
+            this.kRSKanWa = DataHelper.StringtoDecimalNull((String)el.Attribute("kRSKanWa"));
+            this.kRSKangXi = DataHelper.StringtoDecimalNull((String)el.Attribute("kRSKangXi"));
+            this.kRSKorean = DataHelper.StringtoDecimalNull((String)el.Attribute("kRSKorean"));
+            this.kRSMerged = DataHelper.StringToStringNull((String)el.Attribute("kRSMerged"));
+            this.kRSUnicode = DataHelper.StringToStringNull((String)el.Attribute("kRSUnicode"));
+            this.kSBGY = DataHelper.StringToStringNull((String)el.Attribute("kSBGY"));
+            this.kSemanticVariant = DataHelper.StringToStringNull((String)el.Attribute("kSemanticVariant"));
+            this.kSimplifiedVariant = DataHelper.StringToStringNull((String)el.Attribute("kSimplifiedVariant"));
+            this.kSpecializedSemanticVariant = DataHelper.StringToStringNull((String)el.Attribute("kSpecializedSemanticVariant"));
+            this.kTaiwanTelegraph = DataHelper.StringToInt32Null((String)el.Attribute("kTaiwanTelegraph"));
+            this.kTang = DataHelper.StringToStringNull((String)el.Attribute("kTang"));
+            this.kTotalStrokes = DataHelper.StringToStringNull((String)el.Attribute("kTotalStrokes"));
+            this.kTraditionalVariant = DataHelper.StringToStringNull((String)el.Attribute("kTraditionalVariant"));
+            this.kVietnamese = DataHelper.StringToStringNull((String)el.Attribute("kVietnamese"));
+            this.kXHC1983 = DataHelper.StringToStringNull((String)el.Attribute("kXHC1983"));
+            this.kWubi = DataHelper.StringToStringNull((String)el.Attribute("kWubi"));
+            this.kXerox = DataHelper.StringToStringNull((String)el.Attribute("kXerox"));
+            this.kZVariant = DataHelper.StringToStringNull((String)el.Attribute("kZVariant"));
+            #endregion
             var children = el.Descendants(el.GetDefaultNamespace() + "name-alias");
             //var children = el.Descendants();
             if (children != null)
@@ -389,6 +570,104 @@ namespace UCD.Repertoire
             ciDic["Dep"] = Convert.ToInt32(this.Deprecated);
             ciDic["VS"] = Convert.ToInt32(this.VariationSelector);
             ciDic["NChar"] = Convert.ToInt32(this.NoncharacterCodePoint);
+            ciDic["kAccountingNumeric"] = this.kAccountingNumeric;
+            ciDic["kAlternateHanYu"] = this.kAlternateHanYu;
+            ciDic["kAlternateJEF"] = this.kAlternateJEF;
+            ciDic["kAlternateKangXi"] = this.kAlternateKangXi;
+            ciDic["kAlternateMorohashi"] = this.kAlternateMorohashi;
+            ciDic["kBigFive"] = this.kBigFive;
+            ciDic["kCCCII"] = this.kCCCII;
+            ciDic["kCNS1986"] = this.kCNS1986;
+            ciDic["kCNS1992"] = this.kCNS1992;
+            ciDic["kCangjie"] = this.kCangjie;
+            ciDic["kCantonese"] = this.kCantonese;
+            ciDic["kCheungBauer"] = this.kCheungBauer;
+            ciDic["kCheungBauerIndex"] = this.kCheungBauerIndex;
+            ciDic["kCihaiT"] = this.kCihaiT;
+            ciDic["kCompatibilityVariant"] = this.kCompatibilityVariant;
+            ciDic["kCowles"] = this.kCowles;
+            ciDic["kDaeJaweon"] = this.kDaeJaweon;
+            ciDic["kDefinition"] = this.kDefinition;
+            ciDic["kEACC"] = this.kEACC;
+            ciDic["kFenn"] = this.kFenn;
+            ciDic["kFennIndex"] = this.kFennIndex;
+            ciDic["kFourCornerCode"] = this.kFourCornerCode;
+            ciDic["kFrequency"] = this.kFrequency;
+            ciDic["kGB0"] = this.kGB0;
+            ciDic["kGB1"] = this.kGB1;
+            ciDic["kGB3"] = this.kGB3;
+            ciDic["kGB5"] = this.kGB5;
+            ciDic["kGB7"] = this.kGB7;
+            ciDic["kGB8"] = this.kGB8;
+            ciDic["kGradeLevel"] = this.kGradeLevel;
+            ciDic["kGSR"] = this.kGSR;
+            ciDic["kHangul"] = this.kHangul;
+            ciDic["kHanYu"] = this.kHanYu;
+            ciDic["kHanyuPinlu"] = this.kHanyuPinlu;
+            ciDic["kHanyuPinyin"] = this.kHanyuPinyin;
+            ciDic["kHDZRadBreak"] = this.kHDZRadBreak;
+            ciDic["kHKGlyph"] = this.kHKGlyph;
+            ciDic["kHKSCS"] = this.kHKSCS;
+            ciDic["kIBMJapan"] = this.kIBMJapan;
+            ciDic["kIICore"] = this.kIICore;
+            ciDic["kIRGDaeJaweon"] = this.kIRGDaeJaweon;
+            ciDic["kIRGDaiKanwaZiten"] = this.kIRGDaiKanwaZiten;
+            ciDic["kIRGHanyuDaZidian"] = this.kIRGHanyuDaZidian;
+            ciDic["kIRGKangXi"] = this.kIRGKangXi;
+            ciDic["kIRG_GSource"] = this.kirgGSource;
+            ciDic["kIRG_HSource"] = this.KirgHSource;
+            ciDic["kIRG_JSource"] = this.KirgJSource;
+            ciDic["kIRG_KPSource"] = this.KirgKPSource;
+            ciDic["kIRG_KSource"] = this.KirgKSource;
+            ciDic["kIRG_MSource"] = this.KirgMSource;
+            ciDic["kIRG_TSource"] = this.KirgTSource;
+            ciDic["kIRG_USource"] = this.KirgUSource;
+            ciDic["kIRG_VSource"] = this.KirgVSource;
+            ciDic["kJHJ"] = this.kJHJ;
+            ciDic["kJIS0213"] = this.kJIS0213;
+            ciDic["kJapaneseKun"] = this.kJapaneseKun;
+            ciDic["kJapaneseOn"] = this.kJapaneseOn;
+            ciDic["kJis0"] = this.kJis0;
+            ciDic["kJis1"] = this.kJis1;
+            ciDic["kKPS0"] = this.kKPS0;
+            ciDic["kKPS1"] = this.kKPS1;
+            ciDic["kKSC0"] = this.kKSC0;
+            ciDic["kKSC1"] = this.kKSC1;
+            ciDic["kKangXi"] = this.kKangXi;
+            ciDic["kKarlgren"] = this.kKarlgren;
+            ciDic["kKorean"] = this.kKorean;
+            ciDic["kLau"] = this.kLau;
+            ciDic["kMainlandTelegraph"] = this.kMainlandTelegraph;
+            ciDic["kMandarin"] = this.kMandarin;
+            ciDic["kMatthews"] = this.kMatthews;
+            ciDic["kMeyerWempe"] = this.kMeyerWempe;
+            ciDic["kMorohashi"] = this.kMorohashi;
+            ciDic["kNelson"] = this.kNelson;
+            ciDic["kOtherNumeric"] = this.kOtherNumeric;
+            ciDic["kPhonetic"] = this.kPhonetic;
+            ciDic["kPrimaryNumeric"] = this.kPrimaryNumeric;
+            ciDic["kPseudoGB1"] = this.kPseudoGB1;
+            ciDic["kRSAdobe_Japan1_6"] = this.kRSAdobeJapan1_6;
+            ciDic["kRSJapanese"] = this.kRSJapanese;
+            ciDic["kRSKanWa"] = this.kRSKanWa;
+            ciDic["kRSKangXi"] = this.kRSKangXi;
+            ciDic["kRSKorean"] = this.kRSKorean;
+            ciDic["kRSMerged"] = this.kRSMerged;
+            ciDic["kRSUnicode"] = this.kRSUnicode;
+            ciDic["kSBGY"] = this.kSBGY;
+            ciDic["kSemanticVariant"] = this.kSemanticVariant;
+            ciDic["kSimplifiedVariant"] = this.kSimplifiedVariant;
+            ciDic["kSpecializedSemanticVariant"] = this.kSpecializedSemanticVariant;
+            ciDic["kTaiwanTelegraph"] = this.kTaiwanTelegraph;
+            ciDic["kTang"] = this.kTang;
+            ciDic["kTotalStrokes"] = this.kTotalStrokes;
+            ciDic["kTraditionalVariant"] = this.kTraditionalVariant;
+            ciDic["kVietnamese"] = this.kVietnamese;
+            ciDic["kXHC1983"] = this.kXHC1983;
+            ciDic["kWubi"] = this.kWubi;
+            ciDic["kXerox"] = this.kXerox;
+            ciDic["kZVariant"] = this.kZVariant;
+
 
             ciDic["elementName"] = this.ElementName;
             return ciDic;

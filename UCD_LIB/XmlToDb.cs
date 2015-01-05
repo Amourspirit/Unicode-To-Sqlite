@@ -370,6 +370,33 @@ namespace UCD
                 }
             }
             #endregion
+            #region Process Provisional Named Sequence
+            // UCD documentation states that there can be elements named-sequences and
+            // provisional-named-sequences Children of UCD element. It appears there are no
+            // provisional-named-sequences in ucd.all.flat.xml. NsItem class serves for both
+            // cases. The provisional-named-sequences will be processed as named-sequences for
+            // future proofing.
+            if (this.ProcessNamedSequences == true)
+            {
+                foreach (XElement element in doc.Root.Elements(UcdNS + "provisional-named-sequences").Elements())
+                {
+
+                    UCD.NamedSequence.NsItem itm = new UCD.NamedSequence.NsItem();
+                    
+                    itm.PopulateFromElement(element);
+
+                    if (itm == null)
+                    {
+                        OnReadElementNull(element.Name.LocalName);
+                        continue;
+                    }
+
+                    this.OnReadNamedSequence(itm);
+                    this.DataItemToDB(itm, UCD.NamedSequence.NsTable.TableName);
+                    iCount++;
+                }
+            }
+            #endregion
             #region Normalization Corrections
             if (this.ProcessNormalizationCorrections == true)
             {

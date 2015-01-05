@@ -55,5 +55,11 @@
             Default is true.
             </summary>
         </member>
+        <member name="P:UnicodeToSqLite.Program.Options.CreatePlanes">
+            <summary>
+            If true then Emoji Source items will be processed and written into the database.
+            Default is true.
+            </summary>
+        </member>
     </members>
 </doc>

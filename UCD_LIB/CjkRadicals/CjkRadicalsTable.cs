@@ -34,9 +34,9 @@ namespace UCD.CjkRadicals
                     SQLiteTable tb = new SQLiteTable(TableName);
 
                     tb.Columns.Add(new SQLiteColumn("id", ColType.Integer, true, true, true, "0"));
-                    tb.Columns.Add(new SQLiteColumn("number"));
+                    tb.Columns.Add(new SQLiteColumn("number", ColType.Integer, false, false, true, ""));
                     tb.Columns.Add(new SQLiteColumn("radical", ColType.Integer, false, false, true, ""));
-                    tb.Columns.Add(new SQLiteColumn("ideograph", ColType.Integer, false, false, true, ""));
+                    tb.Columns.Add(new SQLiteColumn("ideograph", ColType.Integer));
                     sh.CreateTable(tb);
                     conn.Close();
                 }

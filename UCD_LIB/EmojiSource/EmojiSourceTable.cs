@@ -38,7 +38,7 @@ namespace UCD.EmojiSource
                     tb.Columns.Add(new SQLiteColumn("unicode"));
                     tb.Columns.Add(new SQLiteColumn("docomo", ColType.Integer,false, false, false,""));
                     tb.Columns.Add(new SQLiteColumn("kddi", ColType.Integer, false, false, false, ""));
-                    tb.Columns.Add(new SQLiteColumn("softbank", ColType.Integer, false, false, false, ""));
+                    tb.Columns.Add(new SQLiteColumn("softbank"));
       
                     sh.CreateTable(tb);
                     conn.Close();

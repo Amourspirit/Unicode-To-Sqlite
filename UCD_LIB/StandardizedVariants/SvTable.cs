@@ -32,7 +32,7 @@ namespace UCD.StandardizedVariants
 
                     tb.Columns.Add(new SQLiteColumn("id", ColType.Integer, true, true, true, "0"));
                     tb.Columns.Add(new SQLiteColumn("cps", ColType.Text, false, false, true, ""));
-                    tb.Columns.Add(new SQLiteColumn("desc"));
+                    tb.Columns.Add(new SQLiteColumn("desc", ColType.Text, false, false, true, ""));
                     tb.Columns.Add(new SQLiteColumn("'when'")); // single quotes as when is a reserved word
 
                     sh.CreateTable(tb);

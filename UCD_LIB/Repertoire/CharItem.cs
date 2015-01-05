@@ -68,19 +68,20 @@ namespace UCD.Repertoire
         /// </param>
         public override void PopulateFromElement(System.Xml.Linq.XElement el)
         {
-            NumberStyles ns = (NumberStyles.AllowHexSpecifier | NumberStyles.HexNumber);
+            base.PopulateFromElement(el);
+
+           
             var attCp = el.Attribute("cp");
             if (attCp != null)
             {
-                string strVar = DataHelper.ThrowIfNull(attCp.Value, el.Name.LocalName);
-                this.CodePoint = Int32.Parse(strVar, ns);
+              this.CodePoint = DataHelper.HexStringToInt32((String)el.Attribute("cp"), -1);
             }
 
             var attFirstCp = el.Attribute("first-cp");
             if (attFirstCp != null)
             {
                 string strVar = DataHelper.ThrowIfNull(attFirstCp.Value, el.Name.LocalName);
-                this.FirstCodePoint = Int32.Parse(strVar, ns);
+                this.FirstCodePoint = DataHelper.HexCodePointToInt32Null((String)el.Attribute("first-cp"));
                 // if we are using cp as primary key then lets make it the value of first-cp
                 // later we will create new copies of char item to span between  first_cp and last_cp
                 // each char will a cp value of the next one in the range
@@ -96,16 +97,15 @@ namespace UCD.Repertoire
             var attLastCp = el.Attribute("last-cp");
             if (attLastCp != null)
             {
-                string strVar = DataHelper.ThrowIfNull(attLastCp.Value, el.Name.LocalName);
-                this.LastCodePoint = Int32.Parse(strVar, ns);
+                this.LastCodePoint = DataHelper.HexCodePointToInt32Null((String)el.Attribute("last-cp"));
             }
             
-            if ((this.CodePoint == -1) &&  (this.FirstCodePoint == -1))
+            if ((this.CodePoint == -1) &&  (this.FirstCodePoint.HasValue == false))
             {
                 string msg = string.Format("Element '{0}' does  has null cp and null first_cp.", el.Name.LocalName);
                 throw new Exception(msg);
             }
-            base.PopulateFromElement(el);
+            
         }
 
         public override Dictionary<string, object> ToObjectDictinary()
@@ -120,23 +120,6 @@ namespace UCD.Repertoire
                 ciDic["cp"] = "";
                 
             }
-            if (this.FirstCodePoint > -1)
-            {
-                ciDic["first_cp"] = this.FirstCodePoint;
-            }
-            else
-            {
-                ciDic["first_cp"] = "";
-            }
-            if (this.LastCodePoint > -1)
-            {
-                ciDic["last_cp"] = this.LastCodePoint;
-            }
-            else
-            {
-                ciDic["last_cp"] = "";
-            }
-            
             return ciDic;
         }
        

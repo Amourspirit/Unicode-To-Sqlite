@@ -1,0 +1,115 @@
+﻿See Unicode Atrribute Map for text to parse
+
+Repertoire Expressions
+	Properties
+		Match: ^(?:[idsbm]{1})\|(?:[46dsibh]{1})\|(?:[yn]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+	
+
+		(integer - hex-4, not-null)
+		Match for i,4 and n: ^(?:[i]{1})\|(?:[4]{1})\|(?:[n]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Property replacement: public Int32 $2 { get; set; }$4
+
+		([integer or maybe] - [Hex-4|6 or integer or string] - null) 
+		Match: ^(?:[im]{1})\|(?:[46is]{1})\|(?:[y]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Property replacement: public Int32? $2 { get; set; }$4
+
+		(string - string - [not] null)
+		Match: ^(?:[s]{1})\|(?:[s]{1})\|(?:[ny]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Property replacement: public String $2 { get; set; }$4
+
+		(Boolean - Boolean - Not-Null)
+		Match: ^(?:[b]{1})\|(?:[b]{1})\|(?:[n]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Property Replacement: public Boolean $2 { get; set; }$4
+
+		(Decimal - Decimal - Null)
+		Match: ^(?:[ds]{1})\|(?:[d]{1})\|(?:[y]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Property Replacement: public Decimal? $2 { get; set; }$4
+
+		(Boolean - String - Not-Null) Y-N
+		Match: ^(?:[b]{1})\|(?:[s]{1})\|(?:[n]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Property Replacement: public Boolean $2 { get; set; }$4
+
+	PopulateFromElement
+		(Integer hex-4 not-null) cp
+		Match: ^(?:[i]{1})\|(?:[4]{1})\|(?:[n]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: this.$2 = DataHelper.HexStringToInt32((String)el.Attribute("$1"), -1);$4
+
+		(Integer hex-4 null)
+		Match: ^(?:[i]{1})\|(?:[4]{1})\|(?:[y]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: this.$2 = DataHelper.HexCodePointToInt32Null((String)el.Attribute("$1"));$4
+
+		(Integer hex-6 null)
+		Match: ^(?:[i]{1})\|(?:[6]{1})\|(?:[y]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: this.$2 = DataHelper.HexStringToInt32Null((String)el.Attribute("$1"), 6);$4
+
+		(Decimal Decimal null)
+		Match: ^(?:[d]{1})\|(?:[d]{1})\|(?:[y]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: this.$2 = DataHelper.StringtoDecimalNull((String)el.Attribute("$1"));$4
+
+		(String String Null)
+		Match: ^(?:[s]{1})\|(?:[s]{1})\|(?:[y]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: this.$2 = DataHelper.StringToStringNull((String)el.Attribute("$1"));$4
+
+		(String String Not-Null)
+		Match: ^(?:[s]{1})\|(?:[s]{1})\|(?:[n]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Repace: this.$2 = el.Attribute("$1").Value;$4
+
+		(Integer Integer Null)
+		Match: ^(?:[i]{1})\|(?:[i]{1})\|(?:[y]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: this.$2 = DataHelper.StringToInt32Null((String)el.Attribute("$1"));$4
+
+		(Boolean Boolean Not-Null)
+		Match: ^(?:[b]{1})\|(?:[b]{1})\|(?:[n]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: this.$2 = DataHelper.StringToBool((String)el.Attribute("$1"));$4
+
+		(Maybe String Null)
+		Match: ^(?:[m]{1})\|(?:[s]{1})\|(?:[y]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: this.$2 = DataHelper.YesNoMabeyToInt32((String)el.Attribute("$1"));$4
+
+		(Boolean String Not-Null)
+		Match: ^(?:[b]{1})\|(?:[s]{1})\|(?:[n]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replaceme: this.$2 = DataHelper.StringToBool((String)el.Attribute("$1"));$4
+
+		(String Decimal Null)
+		Match: ^(?:[s]{1})\|(?:[d]{1})\|(?:[y]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: this.$2 = DataHelper.StringtoDecimalNull((String)el.Attribute("$1"));$4
+
+	ToObjectDictinary
+		(Boolean [Boolean or String] Not-Null)
+		Match: ^(?:[b]{1})\|(?:[sb]{1})\|(?:[n]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Repace: ciDic["$1"] = Convert.ToInt32(this.$2);$4
+
+		(All Else)
+		Match: ^(?:[idsm]{1})\|(?:[s46di]{1})\|(?:[yn]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: ciDic["$1"] = this.$2;$4
+
+	CreateRepertoireTable
+		(Integer hex-4 not-null) cp primary key
+		Match: ^(?:[i]{1})\|(?:[4]{1})\|(?:[n]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: tb.Columns.Add(new SQLiteColumn("$1", ColType.Integer, true, false, true, "0"));$4
+
+		([Integer or Mabey] [hex-4|6 or string or integer] null)
+		Match: ^(?:[im]{1})\|(?:[i4s6]{1})\|(?:[y]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: tb.Columns.Add(new SQLiteColumn("$1", ColType.Integer));$4
+
+		(Decimal Decimal null)
+		Match: ^(?:[d]{1})\|(?:[d]{1})\|(?:[y]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: tb.Columns.Add(new SQLiteColumn("$1", ColType.Decimal));$4
+
+		(String String Null)
+		Match: (String String [Not-]Null)
+		Match: ^(?:[s]{1})\|(?:[s]{1})\|(?:[yn]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: tb.Columns.Add(new SQLiteColumn("$1"));$4
+
+		(String String Not-Null)
+		Match: ^(?:[s]{1})\|(?:[s]{1})\|(?:[n]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: tb.Columns.Add(new SQLiteColumn("$1", ColType.Text, false, false, true, ""));
+
+		
+		(Boolean [Boolean or String] Not-Null)
+		Match: ^(?:[b]{1})\|(?:[bs]{1})\|(?:[n]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: tb.Columns.Add(new SQLiteColumn("$1", ColType.Integer, false, false, true , "0"));$4
+
+		(String Decimal Null)
+		Match: ^(?:[s]{1})\|(?:[d]{1})\|(?:[y]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
+		Replace: tb.Columns.Add(new SQLiteColumn("$1", ColType.Decimal));$4

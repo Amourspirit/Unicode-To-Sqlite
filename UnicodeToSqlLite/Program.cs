@@ -11,6 +11,7 @@ using System.Diagnostics;
 using CommandLine;
 using CommandLine.Text;
 
+// Assembly is required to have a copyright message or a Company name or command line opions will throw an error.
 namespace UnicodeToSqLite
 {
     sealed partial class Program
@@ -30,13 +31,25 @@ namespace UnicodeToSqLite
             options.ProcessNormalizationCorrections = false;
             options.ProcessRepertoireXml = false;
             options.ProcesStandardizedVariants = false;
-     
+            options.CreatePlanes = false;
+            options.UcdFlatXmlPath = "";
+
+#if DEBUGLOCAL
+            options.InputDatabase = @"d:\unicode\ucddebug.sqlite";
+            options.MaxCharValue = 65535;
+            options.UcdFlatXmlPath = @"D:\Unicode\ucd.all.flat.xml";
+            // options.ProcessBlocksXml = true;
+            // options.ProcessRepertoireXml = true;
+            options.CreatePlanes = true;
+            Run(options);
+#else
             var parser = new CommandLine.Parser(with => with.HelpWriter = Console.Error);
 
             if (parser.ParseArgumentsStrict(args, options, () => Environment.Exit(-2)))
             {
                 Run(options);
             }
+#endif
         }
 
         private static void Run(Options options)
@@ -71,6 +84,7 @@ namespace UnicodeToSqLite
                 Console.WriteLine("Process StandardizedV ariants Elements: {0}", options.ProcesStandardizedVariants.ToString());
                 Console.WriteLine("Process Cjk Radicals Elements: {0}", options.ProcessCjkRadicals.ToString());
                 Console.WriteLine("Process Emoji Source Elements: {0}", options.ProcessEmojiSource.ToString());
+                Console.WriteLine("Create Planes Table: {0}", options.CreatePlanes.ToString());
                 Console.WriteLine();
                 
             }
@@ -127,7 +141,24 @@ namespace UnicodeToSqLite
                
                 #region Process Elements
 
+                #region CreatePlanes
+                if (options.CreatePlanes == true)
+                {
+                    UCD.Planes.PlanesTable tbl = new UCD.Planes.PlanesTable(Config.DatabaseFile);
+                    if (tbl.TestConnection() == false)
+                    {
+                        throw new Exception("Unable to connect to database");
+                    }
+                    tbl.CreateTable();
+                    if (options.VerboseLevel >= 1)
+                    {
+                        Console.WriteLine("Table for Planes Has been created.");
+                    }
+                }
+
+                #endregion
                 #region If ProcessRepertoireXml
+
                 if (xDb.ProcessRepertoireXml == true)
                 {
                     // only add event handlers if we are processing Repertoire Xml

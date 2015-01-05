@@ -1,124 +1,277 @@
 ﻿Unicode Attribute Map
 Source: http://www.unicode.org/reports/tr42/#w1aac27b1
-Type|Attribute|Code_Name|Description
+Type|XMLType|Nullable|Attribute|Code_Name|Description
 Type:
 	s=string
 	b=boolean
-	i=integer
-	m=integer(yes, no, maybe)
+	i=Int32
+	l=Int64
+	m=Int32(yes, no, maybe)
 	d=decimal
+	h=hex
+	4=Hex (Code Point 4 chars exactly)
+	6=hex (hex string exactly six chars long)
 
-Regex to Match for Code Building:		^(?:[i|d|s|b|m])\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9]+)\|(.*)(\r\n)
+Regex to Match for Code Building:		^(?:[idsbm]{1})\|(?:[46dsibh]{1})\|(?:[yn]{1})\|([A-Za-z0-9\-_]+)\|([A-Za-z0-9_]+)\|(.*)(\r\n)
 Make sure that there is a new line after the last code parse line below for this regex
 Regex Flags:Compiled|Ignore Case|Multi-line|Culture Invairant
 	Replace:
-		$1 = Attribute
+		$1 = ColumnName
 		$2 = Code_Name
 		$3 = Description
 		$4 = NewLine
 	To replace Attribures do a fine and repalace with $1$2
 
-i|cp|CodePoint|Code point
-i|first_cp|FirstCodePoint|First Code Point
-i|last_cp|LastCodePoint|Last Code Point
-d|age|Age|Age
-s|na|Name|Name
-s|na1|NameOne|Name
-s|blk|Block|Block
-s|gc|GeneralCategory|General Category
-i|ccc|Combining|Combining Properties
-s|bc|Bidirectionality|Bidirectionality Properties
-b|Bidi_M|BidiM|The mirrored property
-s|bmg|Bmg|The bmg attribute
-b|Bidi_C|BidiControl|Bidi_Control property
-s|bpt|BidiParedBracketType|bidi paired bracket type
-s|bpb|BidiParedBracket|bidi paired bracket properties
-s|dt|DecompDt|Decomposition
-s|dm|DecompDm|Decomposition ("#" zero or more code points)
-b|CE|CompositionExclusion|Composition_Exclusion
-b|Comp_Ex|FullCompositionExclusion|Full_Composition_Exclusion
-m|NFC_QC|NfcQuickCheck|NFC_Quick_Check (Y,N, or M "Yes, No or Maybe")
-b|NFD_QC|NfdQuickCheck|NFD_Quick_Check
-m|NFKC_QC|NfkcQuickCheck|NFKC_Quick_Check (Y,N, or M "Yes, No or Maybe")
-b|NFKD_QC|NfkdQuickCheck|NFKD_Quick_Check
-b|XO_NFC|ExpandsOnNFC|Expands_On_NFC
-b|XO_NFD|ExpandsOnNFD|Expands_On_NFD
-b|XO_NFKC|ExpandsOnNFKC|Expands_On_NFKC
-b|XO_NFKD|ExpandsOnNKFD|Expands_On_NKFD
-s|FC_NFKC|FcNfkcClosure|FC_NFKC_Closure ("#" zero or more code points)
-s|nt|NumericType|Numeric type
-s|nv|NumericValue|Numeric value { "NaN" - xsd:string { pattern = "-?[0-9]+(/[0-9]+)?" }}? matches fractions as well 13/64
-s|jt|JoiningClass|Joining class
-s|jg|JoiningGroup|Joining group
-b|Join_C|JoiningControl|Joining Control
-s|lb|LineBreak|Linebreak Properties
-s|ea|EastAsianWidth|East Asian Width Property
-b|Upper|Upper|Upper Case Property
-b|Lower|Lower|Lower Case Property
-b|OUpper|OtherUpper|Other Upper Case Property
-b|OLower|OtherLower|Other Lower Case Property
-s|suc|SimplCaseMapUpperCase|Simple Case Mappings
-s|slc|SimplCaseMapLowerCase|Simple Case Mappings
-s|stc|SimplCaseMapTitleCase|Simple Case Mappings
-s|uc|ComplexCaseMapUpperCase|Non-Simple Case Mappings
-s|lc|ComplexCaseMapLowerCase|Non-Simple Case Mappings
-s|tc|ComplexCaseMapTitleCase|Non-Simple Case Mappings
-s|scf|SimpleCaseFolding|Smple Case Folding
-s|cf|CaseFolding|Case Folding
-b|CI|CaseIgnorable|Case_Ignorable
-b|Cased|Cased|Cased
-b|CWCF|ChangesWhenCasefolded|Changes_When_Casefolded
-b|CWCM|ChangesWhenCasemapped|Changes_When_Casemapped
-b|CWL|ChangesWhenLowercased|Changes_When_Lowercased
-b|CWKCF|ChangesWhenNfkcCasefolded|Changes_When_NFKC_Casefolded
-b|CWT|ChangesWhenTitlecased|Changes_When_Titlecased
-b|CWU|ChangesWhenUppercased|Changes_When_Uppercased
-s|NFKC_CF|NfkcCasefold|NKFC_Casefold
-s|sc|Script|Script Properties
-s|scx|ScriptExtension|Script_Extension
-s|isc|Iso10646comment|ISO 10646 comment field
-s|hst|HangulSyllableType|Hangul_Syllable_Type
-s|JSN|JamoShortName|Jamo_Short_Name
-s|InSC|IndicSyllabicCategory|Indic_Syllabic_Category
-s|InMC|IndicMatraCategory|Indic_Matra_Category
-b|IDS|IdStart|ID_Start
-b|OIDS|OtherIdStart|Other_ID_Start
-b|XIDS|XidStart|XID_Start
-b|IDC|IdContinue|ID_Continue
-b|OIDC|OtherIdContinue|Other_ID_Continue
-b|XIDC|XidContinue|XID_Continue
-b|Pat_Syn|PatternSyntax|Pattern_Syntax
-b|Pat_WS|PatternWhiteSpace|Pattern_White_Space
-b|Dash|Dash|Dash
-b|Hyphen|Hyphen|Hyphen
-b|QMark|QuotationMark|Quotation_Mark
-b|Term|TerminalPunctuation|Terminal_Punctuation
-b|STerm|STerm|STerm
-b|Dia|Diacritic|Diacritic
-b|Ext|Extender|Extender
-b|SD|SoftDotted|Soft_Dotted
-b|Alpha|Alphabetic|Alphabetic
-b|OAlpha|OtherAlphabetic|Other_Alphabetic
-b|Math|Math|Math
-b|OMath|OtherMath|Other_Math
-b|Hex|HexDigit|Hex_Digit
-b|AHex|ASCIIHexDigit|ASCII_Hex_Digit
-b|DI|DefaultIgnorableCodePoint|Default_Ignorable_Code_Point
-b|ODI|OtherDefaultIgnorableCodePoint|Other_Default_Ignorable_Code_Point
-b|LOE|LogicalOrderException|Logical_Order_Exception
-b|WSpace|WhiteSpace|White_Space
-b|Gr_Base|GraphemeBase|Grapheme_Base
-b|Gr_Ext|GraphemeExtend|Grapheme_Extend
-b|OGr_Ext|OtherGraphemeExtend|Other_Grapheme_Extend
-b|Gr_Link|GraphemeLink|Grapheme_Link
-s|GCB|GraphemeClusterBreak|Grapheme_Cluster_Break
-s|WB|WordBreak|Word_Break
-s|SB|SentenceBreak|Sentence_Break
-b|Ideo|Ideographic|Ideographic
-b|UIdeo|UnifiedIdeograph|Unified_Ideograph
-b|IDSB|IDSBinaryOperator|IDS_Binary_Operator
-b|IDST|IDSTrinaryOperator|IDS_Trinary_Operator
-b|Radical|Radical|Radical
-b|Dep|Deprecated|Deprecated
-b|VS|VariationSelector|Variation_Selector
-b|NChar|NoncharacterCodePoint|Noncharacter_Code_Point
+Repertoire Elements
+===================
+	 
+i|4|n|cp|CodePoint|Code point
+i|4|y|first_cp|FirstCodePoint|First Code Point (OrigingalName:first-cp)
+i|4|y|last_cp|LastCodePoint|Last Code Point (OriginalName:last-cp)
+d|d|y|age|Age|Age
+s|s|y|na|Name|Name
+s|s|y|na1|NameOne|Name
+s|s|y|blk|Block|Block
+s|s|y|gc|GeneralCategory|General Category
+i|i|y|ccc|Combining|Combining Properties
+s|s|y|bc|Bidirectionality|Bidirectionality Properties
+b|b|n|Bidi_M|BidiM|The mirrored property
+i|4|y|bmg|Bmg|The bmg attribute
+b|b|n|Bidi_C|BidiControl|Bidi_Control property
+s|s|y|bpt|BidiParedBracketType|bidi paired bracket type
+s|s|y|bpb|BidiParedBracket|bidi paired bracket properties
+s|s|y|dt|DecompDt|Decomposition
+s|s|y|dm|DecompDm|Decomposition ("#" zero or more code points)
+b|b|n|CE|CompositionExclusion|Composition_Exclusion
+b|b|n|Comp_Ex|FullCompositionExclusion|Full_Composition_Exclusion
+m|s|y|NFC_QC|NfcQuickCheck|NFC_Quick_Check (Y,N, or M "Yes, No or Maybe")
+b|s|n|NFD_QC|NfdQuickCheck|NFD_Quick_Check
+m|s|y|NFKC_QC|NfkcQuickCheck|NFKC_Quick_Check (Y,N, or M "Yes, No or Maybe")
+b|s|n|NFKD_QC|NfkdQuickCheck|NFKD_Quick_Check
+b|b|n|XO_NFC|ExpandsOnNFC|Expands_On_NFC
+b|b|n|XO_NFD|ExpandsOnNFD|Expands_On_NFD
+b|b|n|XO_NFKC|ExpandsOnNFKC|Expands_On_NFKC
+b|b|n|XO_NFKD|ExpandsOnNKFD|Expands_On_NKFD
+s|s|y|FC_NFKC|FcNfkcClosure|FC_NFKC_Closure ("#" zero or more code points)
+s|s|y|nt|NumericType|Numeric type
+s|s|n|nv|NumericValue|Numeric value { "NaN" - xsd:string { pattern = "-?[0-9]+(/[0-9]+)?" }}? matches fractions as well 13/64
+s|s|n|jt|JoiningClass|Joining class
+s|s|n|jg|JoiningGroup|Joining group
+b|b|n|Join_C|JoiningControl|Joining Control
+s|s|n|lb|LineBreak|Linebreak Properties
+s|s|n|ea|EastAsianWidth|East Asian Width Property
+b|b|n|Upper|Upper|Upper Case Property
+b|b|n|Lower|Lower|Lower Case Property
+b|b|n|OUpper|OtherUpper|Other Upper Case Property
+b|b|n|OLower|OtherLower|Other Lower Case Property
+i|4|y|suc|SimplCaseMapUpperCase|Simple Case Mappings { "#" or single-code-point }?
+i|4|y|slc|SimplCaseMapLowerCase|Simple Case Mappings { "#" or single-code-point }?
+i|4|y|stc|SimplCaseMapTitleCase|Simple Case Mappings { "#" or single-code-point }?
+s|s|y|uc|ComplexCaseMapUpperCase|Non-Simple Case Mappings { "#" or one-or-more-code-points }?
+s|s|y|lc|ComplexCaseMapLowerCase|Non-Simple Case Mappings { "#" or one-or-more-code-points }?
+s|s|y|tc|ComplexCaseMapTitleCase|Non-Simple Case Mappings { "#" or one-or-more-code-points }?
+i|4|y|scf|SimpleCaseFolding|Smple Case Folding { "#" or single-code-point }?
+s|s|y|cf|CaseFolding|Case Folding { "#" or one-or-more-code-points }?
+b|b|n|CI|CaseIgnorable|Case_Ignorable
+b|b|n|Cased|Cased|Cased
+b|b|n|CWCF|ChangesWhenCasefolded|Changes_When_Casefolded
+b|b|n|CWCM|ChangesWhenCasemapped|Changes_When_Casemapped
+b|b|n|CWL|ChangesWhenLowercased|Changes_When_Lowercased
+b|b|n|CWKCF|ChangesWhenNfkcCasefolded|Changes_When_NFKC_Casefolded
+b|b|n|CWT|ChangesWhenTitlecased|Changes_When_Titlecased
+b|b|n|CWU|ChangesWhenUppercased|Changes_When_Uppercased
+s|s|y|NFKC_CF|NfkcCasefold|NKFC_Casefold { "#" or zero-or-more-code-points }?
+s|s|n|sc|Script|Script Properties
+s|s|n|scx|ScriptExtension|Script_Extension
+s|s|y|isc|Iso10646comment|ISO 10646 comment field
+s|s|n|hst|HangulSyllableType|Hangul_Syllable_Type
+s|s|y|JSN|JamoShortName|Jamo_Short_Name (0 to 3 chars)
+s|s|n|InSC|IndicSyllabicCategory|Indic_Syllabic_Category
+s|s|n|InMC|IndicMatraCategory|Indic_Matra_Category
+b|b|n|IDS|IdStart|ID_Start
+b|b|n|OIDS|OtherIdStart|Other_ID_Start
+b|b|n|XIDS|XidStart|XID_Start
+b|b|n|IDC|IdContinue|ID_Continue
+b|b|n|OIDC|OtherIdContinue|Other_ID_Continue
+b|b|n|XIDC|XidContinue|XID_Continue
+b|b|n|Pat_Syn|PatternSyntax|Pattern_Syntax
+b|b|n|Pat_WS|PatternWhiteSpace|Pattern_White_Space
+b|b|n|Dash|Dash|Dash
+b|b|n|Hyphen|Hyphen|Hyphen
+b|b|n|QMark|QuotationMark|Quotation_Mark
+b|b|n|Term|TerminalPunctuation|Terminal_Punctuation
+b|b|n|STerm|STerm|STerm
+b|b|n|Dia|Diacritic|Diacritic
+b|b|n|Ext|Extender|Extender
+b|b|n|SD|SoftDotted|Soft_Dotted
+b|b|n|Alpha|Alphabetic|Alphabetic
+b|b|n|OAlpha|OtherAlphabetic|Other_Alphabetic
+b|b|n|Math|Math|Math
+b|b|n|OMath|OtherMath|Other_Math
+b|b|n|Hex|HexDigit|Hex_Digit
+b|b|n|AHex|ASCIIHexDigit|ASCII_Hex_Digit
+b|b|n|DI|DefaultIgnorableCodePoint|Default_Ignorable_Code_Point
+b|b|n|ODI|OtherDefaultIgnorableCodePoint|Other_Default_Ignorable_Code_Point
+b|b|n|LOE|LogicalOrderException|Logical_Order_Exception
+b|b|n|WSpace|WhiteSpace|White_Space
+b|b|n|Gr_Base|GraphemeBase|Grapheme_Base
+b|b|n|Gr_Ext|GraphemeExtend|Grapheme_Extend
+b|b|n|OGr_Ext|OtherGraphemeExtend|Other_Grapheme_Extend
+b|b|n|Gr_Link|GraphemeLink|Grapheme_Link
+s|s|n|GCB|GraphemeClusterBreak|Grapheme_Cluster_Break
+s|s|n|WB|WordBreak|Word_Break
+s|s|n|SB|SentenceBreak|Sentence_Break
+b|b|n|Ideo|Ideographic|Ideographic
+b|b|n|UIdeo|UnifiedIdeograph|Unified_Ideograph
+b|b|n|IDSB|IDSBinaryOperator|IDS_Binary_Operator
+b|b|n|IDST|IDSTrinaryOperator|IDS_Trinary_Operator
+b|b|n|Radical|Radical|Radical
+b|b|n|Dep|Deprecated|Deprecated
+b|b|n|VS|VariationSelector|Variation_Selector
+b|b|n|NChar|NoncharacterCodePoint|Noncharacter_Code_Point
+i|i|y|kAccountingNumeric|kAccountingNumeric|{ xsd:string {pattern="[0-9]+"} }?
+s|s|y|kAlternateHanYu|kAlternateHanYu|kAlternateHanYu { text }?  #old
+s|s|y|kAlternateJEF|kAlternateJEF|kAlternateJEF { text }?  #old
+s|s|y|kAlternateKangXi|kAlternateKangXi|kAlternateKangXi { text }?
+s|s|y|kAlternateMorohashi|kAlternateMorohashi|kAlternateMorohashi { text }?
+i|4|y|kBigFive|kBigFive|kBigFive {pattern="[0-9A-F]{4}"} 
+i|6|y|kCCCII|kCCCII|kCCCII {pattern="[0-9A-F]{6}"}
+s|s|y|kCNS1986|kCNS1986|kCNS1986 {pattern="[12E]-[0-9A-F]{4}"}
+s|s|y|kCNS1992|kCNS1992|kCNS1992 {pattern="[123]-[0-9A-F]{4}"}
+s|s|y|kCangjie|kCangjie|kCangjie {pattern="[A-Z]+"}
+s|s|y|kCantonese|kCantonese|kCantonese {pattern="[a-z]+[1-6]"} +}
+s|s|y|kCheungBauer|kCheungBauer|kCheungBauer { text }?
+s|s|y|kCheungBauerIndex|kCheungBauerIndex|kCheungBauerIndex {pattern="[0-9]{3}\.[0-9]{2}"} +}
+s|s|y|kCihaiT|kCihaiT|kCihaiT {pattern="[1-9][0-9]{0,3}\.[0-9]{3}"} +}
+s|s|y|kCompatibilityVariant|kCompatibilityVariant|kCompatibilityVariant {pattern="U\+2?[0-9A-F]{4}"}
+s|s|y|kCowles|kCowles|kCowles {pattern="[0-9]{1,4}(\.[0-9]{1,2})?"} +}
+s|s|y|kDaeJaweon|kDaeJaweon|kDaeJaweon {pattern="[0-9]{4}\.[0-9]{2}[0158]"}
+s|s|y|kDefinition|kDefinition|kDefinition text
+i|6|y|kEACC|kEACC|kEACC {pattern="[0-9A-F]{6}"}
+s|s|y|kFenn|kFenn|kFenn {pattern="[0-9]+a?[A-KP*]"} +}
+d|d|y|kFennIndex|kFennIndex|kFennIndex list {pattern="[1-9][0-9]{0,2}\.[01][0-9]"} +}
+s|d|y|kFourCornerCode|kFourCornerCode|kFourCornerCode {pattern="[0-9]{4}(\.[0-9])?"} +}
+i|i|y|kFrequency|kFrequency|kFrequency pattern="[1-5]"
+i|4|y|kGB0|kGB0|kGB0 pattern="[0-9A-F]{4}"
+i|4|y|kGB1|kGB1|kGB1 pattern="[0-9A-F]{4}"
+i|4|y|kGB3|kGB3|kGB3 pattern="[0-9A-F]{4}
+i|4|y|kGB5|kGB5|kGB5 pattern="[0-9A-F]{4}
+i|4|y|kGB7|kGB7|kGB7 pattern="[0-9A-F]{4}
+i|4|y|kGB8|kGB8|kGB8 pattern="[0-9A-F]{4}
+i|i|y|kGradeLevel|kGradeLevel|kGradeLevel pattern="[1-6]
+s|s|y|kGSR|kGSR|kGSR pattern="[0-9]{4}[a-vx-z]'*"
+s|s|y|kHangul|kHangul|kHangul text
+d|d|y|kHanYu|kHanYu|kHanYu list pattern="[1-8][0-9]{4}\.[0-9]{2}[0-3]
+s|s|y|kHanyuPinlu|kHanyuPinlu|kHanyuPinlu
+s|s|y|kHanyuPinyin|kHanyuPinyin|kHanyuPinyin
+s|s|y|kHDZRadBreak|kHDZRadBreak|kHDZRadBreak
+i|i|y|kHKGlyph|kHKGlyph|kHKGlyph
+i|4|y|kHKSCS|kHKSCS|kHKSCS
+s|s|y|kIBMJapan|kIBMJapan|kIBMJapan
+s|s|y|kIICore|kIICore|kIICore
+s|s|y|kIRGDaeJaweon|kIRGDaeJaweon|kIRGDaeJaweon
+s|s|y|kIRGDaiKanwaZiten|kIRGDaiKanwaZiten|kIRGDaiKanwaZiten pattern="[0-9]{5}'?"
+s|s|y|kIRGHanyuDaZidian|kIRGHanyuDaZidian|kIRGHanyuDaZidian pattern [1-8][0-9]{4}\.[0-3][0-9][01]
+s|s|y|kIRGKangXi|kIRGKangXi|kIRGKangXi pattern="[01][0-9]{3}\.[0-7][0-9][01]"
+s|s|y|kIRG_GSource|kirgGSource|kIRG GSource
+s|s|y|kIRG_HSource|KirgHSource|kIRG HSource
+s|s|y|kIRG_JSource|KirgJSource|kIRG JSource
+s|s|y|kIRG_KPSource|KirgKPSource|kIRG KPSource
+s|s|y|kIRG_KSource|KirgKSource|kIRG KSource
+s|s|y|kIRG_MSource|KirgMSource|kIRG MSource
+s|s|y|kIRG_TSource|KirgTSource|kIRG TSource
+s|s|y|kIRG_USource|KirgUSource|kIRG USource
+s|s|y|kIRG_VSource|KirgVSource|kIRG VSource
+s|s|y|kJHJ|kJHJ|kJHJ text
+s|s|y|kJIS0213|kJIS0213|kJIS0213
+s|s|y|kJapaneseKun|kJapaneseKun|kJapaneseKun
+s|s|y|kJapaneseOn|kJapaneseOn|kJapaneseOn
+i|i|y|kJis0|kJis0|kJis0 pattern="[0-9]{4}"
+i|i|y|kJis1|kJis1|kJis1 pattern="[0-9]{4}"
+i|4|y|kKPS0|kKPS0|kKPS0 pattern="[0-9A-F]{4}"
+i|4|y|kKPS1|kKPS1|kKPS1 pattern="[0-9A-F]{4}"
+i|i|y|kKSC0|kKSC0|kKSC0 pattern="[0-9]{4}
+i|i|y|kKSC1|kKSC1|kKSC1 pattern="[0-9]{4}
+s|s|y|kKangXi|kKangXi|kKangXi
+s|s|y|kKarlgren|kKarlgren|kKarlgren
+s|s|y|kKorean|kKorean|kKorean
+s|s|y|kLau|kLau|kLau List
+i|i|y|kMainlandTelegraph|kMainlandTelegraph|kMainlandTelegraph
+s|s|y|kMandarin|kMandarin|kMandarin
+s|s|y|kMatthews|kMatthews|kMatthews
+s|s|y|kMeyerWempe|kMeyerWempe|kMeyerWempe
+s|s|y|kMorohashi|kMorohashi|kMorohashi
+s|s|y|kNelson|kNelson|kNelson list
+s|s|y|kOtherNumeric|kOtherNumeric|kOtherNumeric list
+s|s|y|kPhonetic|kPhonetic|kPhonetic list
+i|i|y|kPrimaryNumeric|kPrimaryNumeric|kPrimaryNumeric pattern="[0-9]+"
+i|i|y|kPseudoGB1|kPseudoGB1|kPseudoGB1 pattern="[0-9]{4}"
+s|s|y|kRSAdobe_Japan1_6|kRSAdobeJapan1_6|kRSAdobe Japan1 6
+d|d|y|kRSJapanese|kRSJapanese|kRSJapanese pattern="pattern="[0-9]{1,3}\.[0-9]{1,2}"
+d|d|y|kRSKanWa|kRSKanWa|kRSKanWa pattern="[0-9]{1,3}\.[0-9]{1,2}"
+d|d|y|kRSKangXi|kRSKangXi|kRSKangXi pattern="[0-9]{1,3}\.[0-9]{1,2}"
+d|d|y|kRSKorean|kRSKorean|kRSKorean pattern="[0-9]{1,3}\.[0-9]{1,2}"
+s|s|y|kRSMerged|kRSMerged|kRSMerged text
+s|s|y|kRSUnicode|kRSUnicode|kRSUnicode list
+s|s|y|kSBGY|kSBGY|kSBGY list
+s|s|y|kSemanticVariant|kSemanticVariant|kSemanticVariant list
+s|s|y|kSimplifiedVariant|kSimplifiedVariant|kSimplifiedVariant list
+s|s|y|kSpecializedSemanticVariant|kSpecializedSemanticVariant|kSpecializedSemanticVariant list
+i|i|y|kTaiwanTelegraph|kTaiwanTelegraph|kTaiwanTelegraph pattern="[0-9]{4}"
+s|s|y|kTang|kTang|kTang
+s|s|y|kTotalStrokes|kTotalStrokes|kTotalStrokes list
+s|s|y|kTraditionalVariant|kTraditionalVariant|kTraditionalVariant list
+s|s|y|kVietnamese|kVietnamese|kVietnamese list
+s|s|y|kXHC1983|kXHC1983|kXHC1983 list
+s|s|y|kWubi|kWubi|kWubi text
+s|s|y|kXerox|kXerox|kXerox
+s|s|y|kZVariant|kZVariant|kZVariant
+
+
+
+
+
+
+Block elements
+==============
+l|l|n|ID|ID|ID for column, primary key. not part of attribute list
+i|4|n|first_cp|FirstCodePoint|First Code Point (OrigingalName:first-cp)
+i|4|n|last_cp|LastCodePoint|Last Code Point (OriginalName:last-cp)
+s|s|y|name|Nmae|Name
+
+Named Sequences
+===============
+l|l|n|ID|ID|ID for column, primary key. not part of attribute list
+s|s|y|cps|CodePoints|Code points { one-or-more-code-points }
+s|s|y|name|Name|Name text
+s|s|n|parentElementName|ParentElementName|Parent Element Name, not part of the attribute list.
+
+Normalization Corrections
+=========================
+l|l|n|ID|ID|ID for column, primary key. not part of attribute list
+i|4|n|cp|CodePoint|Code Point, single code point
+s|s|n|old|Old|Old one or more code points
+s|s|n|new|New|New one or more code points
+s|s|y|version|Version, text
+
+Standardized Variants
+=====================
+l|l|n|ID|ID|ID for column, primary key. not part of attribute list
+s|s|n|cps|CodePoints|Code Points, Two code points.
+s|s|n|desc|Description|Description text
+s|s|y|when|When| text
+
+CJK Radicals
+============
+l|l|n|ID|ID|ID for column, primary key. not part of attribute list
+s|s|n|number|Number|Number pattern="[0-9]{1,3}'?"
+i|4|n|radical|Radical|Radical single code point
+i|4|y|ideograph|Ideograph|Ideograph Single code point nullable
+
+Emoji sources
+=============
+l|l|n|ID|ID|ID for column, primary key. not part of attribute list
+s|s|n|unicode|Unicode|Unicode one or more codepoints
+i|4|n|docomo|Docomo|Docomo code point
+i|4|n|kddi|Kddi|Kddi code point
+i|4|y|softban|Softbank|Softbank single code point nullable
