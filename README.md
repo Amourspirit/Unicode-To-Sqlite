@@ -28,12 +28,9 @@ Command Line options.
 **--pv** - Standardized Variants items will be processed and written into the database  
 **--pc** - Cjk Radicals items will be processed and written into the database.  
 **--pe** - Emoji Source items will be processed and written into the database.  
-**--cp** - Planes table will be created with planes data inserted into the database.  
+**--cp** - Planes table will be created with planes data inserted into the database.
 
-#+BEGIN_EXAMPLE
-   UnicodeToSqLite.exe -d "d:\ucd.sqlite" -x "d:\xml\ucd\ucd.all.flat.xml" --pr --pb --ps --pn --pv --pc --pe --cp
-#+END_EXAMPLE
-
+Example: `UnicodeToSqLite.exe -d "d:\ucd.sqlite" -x "d:\xml\ucd\ucd.all.flat.xml" --pr --pb --ps --pn --pv --pc --pe --cp`
 
 ## Database Specific
 Repertoire child elements such as char, reserved that have a range are expanded into one entry for each element.  
