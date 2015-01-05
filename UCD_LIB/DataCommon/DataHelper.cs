@@ -381,7 +381,7 @@ namespace UCD.DataCommon
             }
 
             // get the hex string from value param
-            // only matches a hex string that is 4 chars such as A4B2
+            // matches a hex string that based on HexLength
             Regex regex = new Regex(
                 "([0-9A-F]{" + hexLength.ToString() + "})",
                 RegexOptions.IgnoreCase
